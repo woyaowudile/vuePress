@@ -7,7 +7,7 @@ set -e
 npm run docs:build
 
 # 进入生成的文件夹
-cd docs/public
+cd public
 
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
@@ -17,7 +17,8 @@ git add -A
 git commit -m $1
 
 # 如果你想要部署到 https://USERNAME.github.io
-git push -f git@github.com:Mengtx-6192/Mengtx-6192.github.io.git master
+#git push -f git@github.com:Mengtx-6192/Mengtx-6192.github.io.git master
+git push -f https://github.com/Mengtx-6192/Mengtx-6192.github.io.git master
 
 # 退出命令
 cd -

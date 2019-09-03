@@ -1,7 +1,6 @@
 module.exports = {
     title: '个人主页',
     description: 'mtx',
-    base: '/index/',
     dest: 'public',
     head: [
         [
