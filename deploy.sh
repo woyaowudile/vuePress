@@ -17,7 +17,6 @@ git add -A
 git commit -m $1
 
 # 如果你想要部署到 https://USERNAME.github.io
-#git push -f git@github.com:Mengtx-6192/Mengtx-6192.github.io.git master
 git push -f https://github.com/Mengtx-6192/Mengtx-6192.github.io.git master
 
 # 退出命令

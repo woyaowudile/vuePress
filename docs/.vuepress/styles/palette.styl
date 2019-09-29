@@ -1,0 +1,30 @@
+.page {
+    // markdown基础语法 -> 图片 -> 2.语法xxx  不换行显示的问题 （mobile）
+    > div {
+        > blockquote {
+            word-break: break-word;
+        }
+    }
+
+    // 多行代码块和引用同时使用（实际不用引用也有这个问题），宽度占了一整行的问题 （mobile）
+    // @media (max-width: 419px)
+    .theme-default-content {
+        div {
+            margin: 0 !important;
+        }
+        .line-numbers-mode {
+            // 多行代码块右侧内容
+            >pre {
+                padding-left: 3.2rem;
+            }
+            
+            // 多行代码块左侧行标
+            .line-numbers-wrapper {
+                width: 2.5rem;
+            }
+            &::after {
+                width: 2.5rem;
+            }
+        }
+    }
+}
