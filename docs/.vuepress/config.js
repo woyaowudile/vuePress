@@ -18,9 +18,9 @@ module.exports = {
             { text: '主页', link: '/' },
             { text: '内容分类',
               items: [
-                { text: 'vue', link: '/vue/' },
-                { text: 'es6', link: '/es6/' },
-                { text: 'web', link: '/web/' },
+                // { text: 'vue', link: '/vue/' },
+                // { text: 'es6', link: '/es6/' },
+                // { text: 'web', link: '/web/' },
                 { text: 'Rongzer', link: '/rongzer/' },
               ] 
             },
