@@ -4,10 +4,16 @@
 
 <script>
 export default {
+  props: {
+    message: {
+      type: String,
+      default: ''
+    }
+  },
   mounted() {
     this.$notify({
       type: 'primary',
-      message: "新增 获取list中任意属性值， 详见第五条",
+      message: this.message,
       duration: 5000
     });
   }

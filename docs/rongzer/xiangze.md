@@ -1,21 +1,8 @@
 ## 翔择项目中组件用法
 
-<vant-notify />
+<!-- <vant-notify :message="'新增 获取list中任意属性值， 详见第五条'" /> -->
+<vant-notify :message="'新增invokeSectionMethod方法，详见第四条: 升级版'" />
 
-:::danger
-><van-icon name="warning" color="#f40" /> 注意：  <br>
-已废除startValidate 属性 和对应的 'on-change-validate-status' 方法 <br>
-已废除startValidate 属性 和对应的 'on-change-validate-status' 方法 <br>
-已废除startValidate 属性 和对应的 'on-change-validate-status' 方法 <br>
-:::
-<br>
-
-:::tip
-><van-icon name="checked" color="#4fa6c7" /> 提示：  <br>
-新增 invokeSectionMethod 和 data 属性， 详见三 <br>
-新增 invokeSectionMethod 和 data 属性， 详见三 <br>
-新增 invokeSectionMethod 和 data 属性， 详见三 <br>
-:::
 ### 一. tabContentSection结构
 > length -------------------（Number）
 > 
@@ -42,7 +29,7 @@
 > // 结构一览
 > tabcontent: {
 >      data: {},
->      invokeSectionMethod: {},
+>      invokeSectionMethod: {}, // 必写
 >      length: 0,
 >      title: '工程踏勘_子公司',
 >      collapse: true,
@@ -197,7 +184,7 @@
       params: {}, // 参数 （例如table下，name为reload时刷新表格）
       callback: () => {} // function：回调函数
   };
-  // 例子：
+  // 例如：
   options.main.tabcontent.invokeSectionMethod = {
       // 默认不写type和 type: all时一个意思。获取所有table、formList
       status: 'save',
@@ -221,7 +208,70 @@
 
 :::
 
-### 四. 赋值给formList中某项
+### 四. 升级版
+> 因为options.main.tabcontent.invokeSectionMethod 赋值给data 的操作是异步的，实际应用会麻烦
+> 
+> 所以 又写了个通用方法: 
+```js
+// 两个参数： 
+// 第一个： 对象，用法和第三条一样， status必传，
+// 第二个：this，在vue文件中用this, 在js文件中用vm
+
+vm.$methodsJs.invokeSectionMethod({status: 'save'}, this)
+```
+```js
+// 子页面
+// 用法和之前一样，将methods导出去
+let events = {
+    $page: {
+        'on-ready'(next) {
+            vm.litOptions.methods = methods;
+            next && next();
+        }
+    },
+    main: {
+        'on-back': () => {},
+        oninit1() {}
+    }
+};
+let methods = {
+    save() {
+        // 之前
+        // options.main.tabcontent.invokeSectionMethod = {
+        //     // 默认不写type和 type: all时一个意思。获取所有table、formList
+        //     status: 'save',
+        //     callback: () => {}
+        // };
+
+        // 现在
+        return vm.$methodsJs.invokeSectionMethod({status: 'save'}, vm);
+    }
+};
+```
+```js
+// 父页面
+// 逻辑自己写, 重点是调用 vm.litOptions.methods.save 方法后
+// 返回的res是一个 promise 对象, 可以 .then的形式 获取 数据
+let events = {
+    main: {
+        'on-save': () => {
+            let o = vm.$methodsJs.getListAttr(options.main.tabcontent, '_this', 'flag');
+            o.tabs.map( (v, i) => {
+                if (!v.litOptions.methods.save) {return;}
+                let res = v.litOptions.methods.save();
+                res.then( v => {
+                    console.log('reslove1111', v);
+                });
+            });
+        },
+        'on-reset': () => {},
+        'on-submit': () => {},
+    }
+};
+```
+> <image-preview :imgUrl="'invokeSectionMethod.jpg'" />
+
+### 五. 赋值给formList中某项
 
 > <image-preview :imgUrl="'setFormValue.png'" />
 > 代码如下：
@@ -261,18 +311,30 @@
 >           res: res, // (必要)
 >       });
 >    }
->};
->```
-> 上面说过了挂载公共方法到methodsJs上（见上一章最后）
-> 
-> <span style="color: #a1b5a8">setFormValue这个方法的四个参数可以理解为：</span>
-> 
-> <span style="background: #fff1f1;padding: 5px;">找到invokeSectionMethod属性同级的list中，一个valueId叫 formListRef1 的表单，将这个表单参数model中的  ownerLinkMan 的值 修改成 传入的值 res。<br>
-> <strong>如果参数model没写，则res赋值给整个model</strong>
-> <strong>如果参数model赋值其中两个， model: ['ownerLinkMan1', 'ownerLinkMan2']</strong>
-> </span>
+> };
 
-### 五. 获取list中含有指定属性的对象
+
+ 上面说过了挂载公共方法到methodsJs上（见上一章最后）
+ 
+ <span style="color: #a1b5a8">setFormValue这个方法的四个参数可以理解为：</span>
+ 
+ <span style="background: #fff1f1;padding: 5px;">找到invokeSectionMethod属性同级的list中，一个valueId叫 formListRef1 的表单，将这个表单参数model中的  ownerLinkMan 的值 修改成 传入的值 res。<br>
+ <strong>如果参数model没写，则res赋值给整个model</strong>
+ <strong>如果参数model赋值其中两个， model: ['ownerLinkMan1', 'ownerLinkMan2']</strong>
+ </span>
+
+<strong style="color:red">注意：</strong> 
+:::danger
+ 因为使用 options.main.invokeSectionMethod --
+ ----- 将获取的值，放在 options.main.data 是异步操作， --
+ ----- 所以有两种写法： --
+ ----- 1. 将方法写在callback中
+ ----- 2. this.$nextTick( () => { ... })
+:::
+
+ 
+
+### 六. 获取list中含有指定属性的对象
 ```js
 let options = {
     main: {
@@ -312,8 +374,10 @@ let options = {
     }
 };
 // > 现在要获取 litOptions 中 methods的值
-// > vm.$methodsJs.getListAttr(options.main.tabcontent, 'tab1');
-// > 返回当前属性所在对象 {
+// > 正常写法： options.main.tabcontent[0].list[0].array[0].tab.tabs[0].litOptions.methods
+// > 使用全局方法：vm.$methodsJs.getListAttr(options.main.tabcontent, 'tab1');
+// > 返回当前属性所在对象， 即： 
+// {
 //     label: '审批结果',
 //     page: 'designResultPage',
 //     name: 'tab1',
@@ -322,7 +386,7 @@ let options = {
 //     },
 // },
 // > 默认查找name属性， 如果要找label，则
-// > vm.$methodsJs.getListAttr(options.main.tabcontent, 'tab1', 'label');
+// > vm.$methodsJs.getListAttr(options.main.tabcontent, '审批结果', 'label');
 
 ```
 :::tip
@@ -364,3 +428,39 @@ let events = {
 };
 ```
 :::
+
+### 七. 样式设置
+> <image-preview :imgUrl="'setClassName1.jpg'" />
+> 一般只有厨房图纸设计 这一个可以折叠大类， 现在要求有两个大类
+> <image-preview :imgUrl="'setClassName-code1.jpg'" />
+
+```js
+layout: {
+    componentList: [
+        {
+            type: 'section',
+            name: 'kitchenDesignWrap',
+            componentList: [
+                {
+                    name: 'topInfo',
+                    component: 'topInfoSection'
+                },
+                {
+                    type: 'section',
+                    class: '', // 
+                    componentList: [
+                        {
+                            name: 'main',
+                            component: 'publicSection'
+                        },
+                        {
+                            name: 'ex1',
+                            component: 'publicSection'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+},
+```
