@@ -1,7 +1,7 @@
 ## 翔择项目中组件用法
 
 <!-- <vant-notify :message="'新增 获取list中任意属性值， 详见第五条'" /> -->
-<vant-notify :message="'新增invokeSectionMethod方法，详见第四条: 升级版'" />
+<vant-notify :message="'添加 第四条: 升级版 的 属性options! 添加 第四条: 升级版 的 属性options! 添加 第四条: 升级版 的 属性options!'" />
 
 ### 一. tabContentSection结构
 > length -------------------（Number）
@@ -214,10 +214,11 @@
 > 所以 又写了个通用方法: 
 ```js
 // 两个参数： 
-// 第一个： 对象，用法和第三条一样， status必传，
-// 第二个：this，在vue文件中用this, 在js文件中用vm
+// 第一个（新增）： options, 目标，例如：options.main.tabcontent
+// 第二个： 对象，用法和第三条一样， status必传，
+// 第三个：this，在vue文件中用this, 在js文件中用vm
 
-vm.$methodsJs.invokeSectionMethod({status: 'save'}, this)
+vm.$methodsJs.invokeSectionMethod(options, {status: 'save'}, this)
 ```
 ```js
 // 子页面
@@ -244,7 +245,7 @@ let methods = {
         // };
 
         // 现在
-        return vm.$methodsJs.invokeSectionMethod({status: 'save'}, vm);
+        return vm.$methodsJs.invokeSectionMethod(options, {status: 'save'}, vm);
     }
 };
 ```

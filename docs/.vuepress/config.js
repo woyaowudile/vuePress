@@ -20,6 +20,7 @@ module.exports = {
               items: [
                 // { text: 'vue', link: '/vue/' },
                 // { text: 'es6', link: '/es6/' },
+                // { text: 'js', link: '/js/' },
                 // { text: 'web', link: '/web/' },
                 { text: 'Rongzer', link: '/rongzer/' },
               ] 
@@ -33,6 +34,9 @@ module.exports = {
                 "vue"
             ],
             "/es6/":[
+                "",
+            ],
+            "/js/":[
                 "",
             ],
             "/web/":[
