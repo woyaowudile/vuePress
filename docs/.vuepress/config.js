@@ -18,11 +18,14 @@ module.exports = {
             { text: '主页', link: '/' },
             { text: '内容分类',
               items: [
-                // { text: 'vue', link: '/vue/' },
-                // { text: 'es6', link: '/es6/' },
-                // { text: 'js', link: '/js/' },
-                // { text: 'web', link: '/web/' },
-                { text: 'Rongzer', link: '/rongzer/' },
+                { text: 'vue', link: '/vue/' },
+                { text: 'es6', link: '/es6/' },
+                { text: 'js', link: '/js/' },
+                { text: 'css', link: '/css/' },
+                { text: 'web', link: '/web/' },
+                // { text: 'Rongzer', link: '/rongzer/' },
+                // { text: 'test', link: '/test1/' },
+                // { text: '期货', link: '/future/' },
               ] 
             },
             // { text: '关于', link: '/about/' },
@@ -38,6 +41,11 @@ module.exports = {
             ],
             "/js/":[
                 "",
+                "skills"
+            ],
+            "/css/":[
+                "",
+                "sass"
             ],
             "/web/":[
                 "",
@@ -47,6 +55,12 @@ module.exports = {
             "/rongzer/":[
                 "",
                 "xiangze",
+            ],
+            "/test1/":[
+                "",
+            ],
+            "/future/":[
+                "",
             ],
         },
         sidebarDepth: 2,

@@ -8,7 +8,9 @@ function istype(value) {
     return Object.prototype.toString.call(value).slice(8, -1);
 }
 /** *****************************E_N_D********************************** */
+```
 
+```js
 /**
  * 创建新类
  */
@@ -18,8 +20,10 @@ class CLASSCOST {
     }
 }
 /** *****************************E_N_D********************************** */
+```
 
 
+```js
 // 将 数组对象 的键值， 重新赋值到 一个 规定的 键值组 中去
 // 例如 from: [ {a:1,b:2}, {a:11,b22}] --> to: {a:''} ----> return:  [{a:1},{a:11}][0] --{a:1}
 function changBean(from, to, isObj = true, index = 0) {
@@ -38,142 +42,19 @@ function changBean(from, to, isObj = true, index = 0) {
     return isObj ? o[index] : o;
 }
 /** *****************************E_N_D********************************** */
+```
 
 
+```js
 // 深克隆
 function changeJson(res) {
     let o = JSON.parse(JSON.stringify(res));
     return o;
 }
 /** *****************************E_N_D********************************** */
-
 ```
 
 ```js
-// 使用 async await
-function getApi(o = { api: '', data: {}, headers: {}, notShow: false,  callback: callback}, _this) {
-    if(!notShow) {
-      // vant用提示加载, 可根据使用的更改
-        vant.Toast.loading({
-            mask: true,
-            message: '加载中...',
-            duration: 0
-        });
-    }
-    return new Promise(resolve => {
-        _this.$dataSource({
-            api: o.api,
-            params: o.data,
-            headers: {
-                ...o.headers
-            },
-            success: res => {
-                callback && callback();
-                resolve(res);
-            },
-            fail: err => {
-                resolve(err);
-            }
-        });
-    });
-}
-
-function getApiRes(res, _this) {
-    if (!(res && res.success)) {
-      // iview用提示, 可根据使用的更改
-        _this.$Message.config({
-            top: 50,
-            duration: 3,
-            content: res && res.errorMessage || '调用失败'
-        });
-        return true;
-    }
-}
-
-/** *****************************E_N_D********************************** */
-
-
-/** *********************翔择用，其他使用可更改************************** */
-// 对 form 中某项属性赋值
-function setFormValue(o = { list: [], ref: '', model: '', res: {} }) {
-    for (let i = 0; i < o.list.length; i++) {
-        let v = o.list[i].array;
-        if (!(v instanceof Array)) {
-            continue;
-        }
-        for (let k = 0; k < v.length; k++) {
-            let d = v[k].formList;
-            if (d && d.valueId === o.ref) {
-                if (!d.model) {
-                    d.model = {};
-                }
-                if (!o.model) {
-                    d.model = o.res;
-                    return;
-                }
-                let obj = o.model;
-                if (!(obj instanceof Array)) {
-                    obj = [o.model];
-                }
-                obj.map(x => {
-                    d.model[x] = o.res[x];
-                });
-            }
-        }
-    }
-}
-
-// 获取 list 中唯一含有属性res的那个对象
-function getListAttr(list, res, attr = 'name') {
-    if (typeof list !== 'object' && list === res) {
-        return list;
-    }
-    if (list instanceof Object || list instanceof Array) {
-        for (let k in list) {
-            if (list[k]['invokeSectionMethod']) {
-                // 这里的if 判断 是为了invokeSectionMethod这个方法用的，没有其他用途
-                list[k][attr] = JSON.stringify(list[k][attr]);
-            }
-            if (list[k][attr] === res) {
-                return list[k];
-            }
-            if (!list[k][attr] && (list[k] instanceof Object || list[k] instanceof Array)) {
-                let req = getListAttr(list[k], res, attr);
-                if (req) {
-                    return req;
-                }
-            }
-        }
-    }
-}
-
-function invokeSectionMethod(
-    o = {
-        type: 'all',
-        ref: '',
-        name: '',
-        status: 'save',
-        params: {},
-        callback: () => {}
-    },
-    _this
-) {
-    let options = _this.options;
-    let res = getListAttr(options, '{}', 'invokeSectionMethod');
-    res.invokeSectionMethod = {
-        ...o
-    };
-    return new Promise((reslove, reject) => {
-        _this.$nextTick(() => {
-            if (options.main.data) {
-                reslove(options.main.data);
-            }
-        });
-    });
-}
-
-/** *****************************E_N_D********************************** */
-
 // uuid
 function getUuid() {
     function S4() {
@@ -181,4 +62,41 @@ function getUuid() {
     }
     return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
 }
+/** *****************************E_N_D********************************** */
 ```
+
+```js
+/**
+ * 递归
+ * 1. 两个数组，一个树结构带children, 一个长度为3的数组
+ * 2. 匹配两个数组，后一数组中的值，匹配到树结构中
+*/
+let deepMap = function(list, item) {
+    list.forEach((v, i) => {
+        if (v.id === item.itemId) {
+            // 正常逻辑是，只需要修改判断条件，和这里的赋值即可
+            v.detailAmount = item.detailAmount;
+            v.detailNum = item.detailNum;
+            v.detailPrice = item.detailPrice;
+            v.custom_id = item.id;
+        } else {
+            if (v.children && v.children.length > 0) {
+                v.children = deepMap(v.children, item);
+            }
+        }
+        /*
+         * todo:
+         *   处理children, 以达到从底层往外层处理的效果
+        */
+    });
+    return list;
+};
+let result = [];
+arr.forEach((d, k) => {
+    result = deepMap(treeArr, d);
+});
+/** *****************************E_N_D********************************** */
+```
+::: tip 提示
+当然了， 如果需要将子级的某项值相加后赋值给父级这种需求，就可在todo处处理children
+:::

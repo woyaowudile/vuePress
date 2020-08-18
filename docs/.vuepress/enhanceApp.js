@@ -1,12 +1,9 @@
-import iview from 'iview'
-import vant from 'vant'
+import ViewUI from "view-design";
+import vant from "vant";
 
-import 'iview/dist/styles/iview.css'
-import 'vant/lib/index.css'
+import "view-design/dist/styles/iview.css";
+import "vant/lib/index.css";
 
-
-export default ({
-    Vue
-}) => {
-    Vue.use(vant)
-}
+export default ({ Vue }) => {
+  Vue.use(vant);
+};

@@ -105,3 +105,5 @@
 <!-- <van-collapse v-model="2">
     <van-collapse-item title="标题1" name="1">内容</van-collapse-item>
 </van-collapse> -->
+
+### 七. class

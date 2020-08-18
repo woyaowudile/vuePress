@@ -31,7 +31,7 @@
    >>>.vuepress
    >>>>config.js
 
-7. 运行命令，启动或打包。打包后会发现多了两个文件夹
+7. 运行命令先安装npm install -g vuepress，启动或打包。打包后会发现多了两个文件夹
    >press
    >>package.json
    >>
