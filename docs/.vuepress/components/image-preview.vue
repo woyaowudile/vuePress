@@ -1,6 +1,10 @@
 <template>
-  <div class="vant">
-    <van-image fit="cover" :src="url12" @click="clickPreview(url12)" />
+  <div class="image-preview">
+    <van-image fit="cover"
+            :heght="height || '100%'"
+            :width="width || '100%'"
+            :src="url12"
+            @click="clickPreview(url12)" />
     <van-image-preview
             v-model="show"
             :images="images"
@@ -18,6 +22,14 @@
 export default {
   props: {
     imgUrl: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: String,
+      default: ""
+    },
+    height: {
       type: String,
       default: ""
     }
@@ -42,9 +54,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less" scoped>
-.vant {
-  
-}
-</style>

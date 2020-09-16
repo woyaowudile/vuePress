@@ -1,5 +1,5 @@
 module.exports = {
-    title: '个人主页',
+    title: '回到开始',
     description: 'mtx',
     dest: 'public',
     markdown: {
@@ -21,6 +21,7 @@ module.exports = {
                 { text: 'vue', link: '/vue/' },
                 { text: 'es6', link: '/es6/' },
                 { text: 'js', link: '/js/' },
+                { text: 'node', link: '/node/' },
                 { text: 'css', link: '/css/' },
                 { text: 'web', link: '/web/' },
                 // { text: 'Rongzer', link: '/rongzer/' },
@@ -43,6 +44,9 @@ module.exports = {
                 "",
                 "skills"
             ],
+            "/node/":[
+                ""
+            ],
             "/css/":[
                 "",
                 "sass"
@@ -50,7 +54,8 @@ module.exports = {
             "/web/":[
                 "",
                 "study",
-                "markdown"
+                "markdown",
+                "note"
             ],
             "/rongzer/":[
                 "",
