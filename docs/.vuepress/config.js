@@ -27,7 +27,7 @@ module.exports = {
                 // { text: 'Rongzer', link: '/rongzer/' },
                 // { text: 'test', link: '/test1/' },
                 // { text: '期货', link: '/future/' },
-              ] 
+              ]
             },
             // { text: '关于', link: '/about/' },
             { text: 'Github', link: 'https://mengtx-6192.github.io' },
@@ -55,7 +55,8 @@ module.exports = {
                 "",
                 "study",
                 "markdown",
-                "note"
+                "note",
+                "linux"
             ],
             "/rongzer/":[
                 "",
@@ -69,6 +70,6 @@ module.exports = {
             ],
         },
         sidebarDepth: 2,
-        lastUpdated: 'Last Updated', 
+        lastUpdated: 'Last Updated',
     }
-}
+};
