@@ -14,6 +14,7 @@ module.exports = {
         ]
     ],
     themeConfig: {
+        log: '', // 图片链接或资源目录
         nav: [
             { text: '主页', link: '/' },
             { text: '内容分类',
@@ -56,7 +57,9 @@ module.exports = {
                 "study",
                 "markdown",
                 "note",
-                "linux"
+                "linux",
+                "git",
+                "webpack"
             ],
             "/rongzer/":[
                 "",
@@ -69,7 +72,7 @@ module.exports = {
                 "",
             ],
         },
-        sidebarDepth: 2,
-        lastUpdated: 'Last Updated',
+        sidebarDepth: 4, // 将 #、## 的标题显示到左侧侧边栏
+        lastUpdated: '更新时间', // 显示更新
     }
 };
