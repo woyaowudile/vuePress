@@ -58,7 +58,7 @@
 >
 ><p>3. 最后，可以将代码上传github。这里最好先设置.gitignore将node_mouldes和public设置进去。因为你要是先提交，后添加忽略文件的话，会发现并没有生效，这时候需要你先清除之前的缓存。</p>
    
-## 结尾
+## 三. 结尾
 >每次更新代码，还要输入打包命令，添加文件提交代码，然后上传...
 >***
 >我就是懒，怎么办呢？现在回头看看之前的package.json中，除了运行命令，打包命令，还有个deploy
@@ -73,9 +73,15 @@
 在当前文件夹中右键，如果能看不到 git bash，说明没有安装
 :::
 
-:::tip
-如果遇到The remote end hung up unexpectedly
-则在当前目录下的.git -> config 中添加
-[http]
+:::tip 提示
+如果遇到The remote end hung up unexpectedly <br />
+则在当前目录下的.git -> config 中添加 <br />
+[http] <br />
 postBuffer = 524288000
+:::
+
+:::danger 注意
+deploy.sh这个文件，如果在windows中被执行过，则在linux中运行就会失败。反之，也是 <br />
+原因：因为两个系统的编译会导致 空格、换行等不一致 <br />
+解决办法： 重新手写一份
 :::

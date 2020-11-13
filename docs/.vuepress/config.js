@@ -19,21 +19,26 @@ module.exports = {
             { text: '主页', link: '/' },
             { text: '内容分类',
               items: [
-                { text: 'vue', link: '/vue/' },
-                { text: 'es6', link: '/es6/' },
-                { text: 'js', link: '/js/' },
+                { text: 'vpn', link: '/vpn/' },
+                // { text: 'vue', link: '/vue/' },
+                // { text: 'es6', link: '/es6/' },
+                // { text: 'js', link: '/js/' },
                 { text: 'node', link: '/node/' },
                 { text: 'css', link: '/css/' },
                 { text: 'web', link: '/web/' },
+                { text: 'python', link: '/python/' },
                 // { text: 'Rongzer', link: '/rongzer/' },
                 // { text: 'test', link: '/test1/' },
                 // { text: '期货', link: '/future/' },
               ]
             },
             // { text: '关于', link: '/about/' },
-            { text: 'Github', link: 'https://mengtx-6192.github.io' },
+            // { text: 'Github', link: 'https://mengtx-6192.github.io' },
         ],
         sidebar: {
+            "/vpn/":[
+                "",
+            ],
             '/vue/': [
                 "",
                 "vue"
@@ -60,6 +65,15 @@ module.exports = {
                 "linux",
                 "git",
                 "webpack"
+            ],
+            "/python/":[
+                "",
+                "for、while",
+                "import和格式符",
+                "数组、字典",
+                "方法体",
+                "类与继承",
+                "文件读、写"
             ],
             "/rongzer/":[
                 "",

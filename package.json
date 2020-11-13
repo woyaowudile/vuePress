@@ -6,7 +6,8 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "deploy": "sh deploy.sh"
+    "deploy": "sh deploy.sh",
+    "deploy:linux": "sh deploy-linux.sh"
   },
   "dependencies": {
     "vant": "^2.5.1",

@@ -6,6 +6,7 @@
 #### 1.新建仓库
 > git init
 > git remote add origin 'http://xxxxxx'
+> npm config set registry http://192.168.1.181:4873 // 设置npm安装ip
 
 ##### 2. 获取远端分支
 > 如果是新的仓库，这里只有master分支 <br />
