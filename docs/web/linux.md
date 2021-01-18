@@ -97,3 +97,10 @@ sudo mkswap /root/swapfile　#建立swap的文件系统
 sudo swapon /root/swapfile　#启用swap文件
 
 echo "/root/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab　#更新fstab文件
+
+deepin登录界面循坏：
+	1. sudo apt-get autoremove
+	2. sudo apt-get install ubuntu-desktop
+	3. sudo rm -r .Xauthority
+	4. sudo nano /etc/profile 然后注释掉最后的几个export，如果没有就不用管
+	5. 重启

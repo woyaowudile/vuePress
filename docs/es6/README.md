@@ -94,16 +94,67 @@
 > ```
 
 ### 六. async/awit
-> ```js
-> setTimeout( () => {
->   console.log('timeout') 
-> }, 1000)
-> console.log('start')
-> // 先打印哪个，后打印哪个
-> ```
+```js
+setTimeout( () => {
+  console.log('timeout')
+}, 1000)
+console.log('start')
+// 想要先打印timeout，然后再打印start
+
+```
 
 <!-- <van-collapse v-model="2">
     <van-collapse-item title="标题1" name="1">内容</van-collapse-item>
 </van-collapse> -->
 
 ### 七. class
+```js
+
+function istype(data) {
+    return Object.prototype.toString.call(data).slice(8, -1)
+}
+// 使用类模拟interface
+function createInterFaceClass(inface, params) {
+    let infaceValue = inface
+    if (istype(inface) === 'Object') {
+        infaceValue = Object.entries(inface)[0][1];
+    }
+    class interFace {
+        constructor(params) {
+            for (const [key, value] of Object.entries(inface)) {
+                if (!params.hasOwnProperty(key)) {
+                    this[key] = value;
+                    continue;
+                }
+                if (istype(params[key]) !== istype(value)) {
+                    throw new Error(`${key}期望: ${istype(value)},得到 : ${istype(params[key])}`);
+                }
+                this[key] = params[key];
+            }
+        }
+    }
+    let a = class infaceName extends interFace {
+        constructor() {
+            super(params);
+        }
+    }
+    // 返回class
+    // return new a(params);
+    // 返回object
+    return { ...new a(params) }
+}
+// 使用原生js模拟
+function createInterFace(inface, params) {
+    console.log('js');
+    let value = inface;
+    for(let i in inface) {
+        if (params.hasOwnProperty(i)) {
+            if (istype(inface[i]) !== istype(params[i])) {
+                throw new Error(`${i}期望: ${istype(inface[i])},得到 : ${istype(params[i])}`);
+            }
+            value[i] = params[i];
+        }
+    }
+    return value;
+}
+```

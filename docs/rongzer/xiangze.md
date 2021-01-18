@@ -1,4 +1,4 @@
-## 翔择项目中组件用法
+## 项目中组件用法
 
 <!-- <vant-notify :message="'新增 获取list中任意属性值， 详见第五条'" /> -->
 <vant-notify :message="'添加 第四条: 升级版 的 属性options! 添加 第四条: 升级版 的 属性options! 添加 第四条: 升级版 的 属性options!'" />

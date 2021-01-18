@@ -68,15 +68,17 @@ import b # 这时 只能打印出'b.py',因为现在的'__main__'是 a.py
 ## csv模块
 ```python
 import csv
-# 版本2.7.16报错encoding。 可引入模块io，io.open(...)其他不变，即可；或者不适用encoding
+# 版本2.7.16报错encoding。 可引入模块io，io.open(...)其他不变，即可；或者不使用encoding
 with open('./test.csv', encoding='utf-8-sig') as r:
 	print '内容如下\n'
 	reader = csv.reader(r)
-	print(reader)
+	for i in reader:
+		print(i)
 
 with open('./test.csv', 'a') as r:
 	writer = csv.writer(r)
-	writer.writerow([11, 12, 13])
+	for i in [[11,12,13], [21,22,23], [31,32,33]]:
+		writer.writerow(i)
 ```
 
 ## time 模块
@@ -104,4 +106,27 @@ print (time.strftime("%a %b %d %H:%M:%S %Y") ) # Fri Nov 13 16:23:52 2020
 # 将格式字符串转换为时间戳    和 time.time()的区别在于小数位
 a = "Sat Mar 28 22:24:24 2016"
 print (time.mktime(time.strptime(a,"%a %b %d %H:%M:%S %Y"))) # 1459175064.0
+```
+
+## 邮件
+```python
+# email模块构造邮件、smtplib模块复杂发送邮件
+# SMTP是发送邮件的协议
+from email.mime.text import MIMEText
+import smtplib
+
+msg = MIMEText('邮件的内容', 'plain', 'utf-8') # MIME的subtype: text/plain两种
+
+# 1. 获取邮箱地址、端口，QQ邮箱SMTP服务器地址：smtp.qq.com, 端口465, QQ邮箱默认的端口是25,这里使用的是加密端口465。
+server = smtplib.SMTP_SSL('邮箱供应方的地址', '端口(int型)')
+server.set_debuglevel(1) # 调试级别： 1就可以打印出和SMTP服务器交互的所有信息。
+# 2. 发件人登录邮箱
+server.login('发件人邮箱地址', '密码')
+# 3. 发送
+server.sendmail('发件人的邮箱地址', ['收件人的邮箱地址'], msg.as_string()) # 将msg的邮件内容MIMEText对象变成str。
+# 4. 完成退出
+server.quit()
+
+# 问题总结：
+# 1. SMTPAuthenticationError: STMP服务未开启，需要到邮箱中设置
 ```
