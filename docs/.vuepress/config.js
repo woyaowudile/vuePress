@@ -30,6 +30,7 @@ module.exports = {
                 // { text: 'Rongzer', link: '/rongzer/' },
                 // { text: 'test', link: '/test1/' },
                 // { text: '期货', link: '/future/' },
+                { text: 'npm', link: '/npm/' },
               ]
             },
             // { text: '关于', link: '/about/' },
@@ -84,6 +85,10 @@ module.exports = {
             ],
             "/future/":[
                 "",
+            ],
+            "/npm/":[
+                "",
+                "publish",
             ],
         },
         sidebarDepth: 4, // 将 #、## 的标题显示到左侧侧边栏
