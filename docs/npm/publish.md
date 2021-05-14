@@ -28,3 +28,7 @@
 
 > 使用
 >> <image-preview :imgUrl="'npm/8.jpg'" width="50%" height="50%" />
+
+### 四. 测试版本
+> npm publish --tag=beta
+> 在pcakage.json里  "version": "1.0.0-beta"
