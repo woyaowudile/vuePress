@@ -30,6 +30,7 @@ module.exports = {
                 // { text: 'Rongzer', link: '/rongzer/' },
                 // { text: 'test', link: '/test1/' },
                 // { text: '期货', link: '/future/' },
+                { text: '股票', link: '/gupiao/' },
                 { text: 'npm', link: '/npm/' },
               ]
             },
@@ -85,6 +86,10 @@ module.exports = {
             ],
             "/future/":[
                 "",
+            ],
+            "/gupiao/":[
+                "",
+                "risk"
             ],
             "/npm/":[
                 "",

@@ -3,6 +3,7 @@
     <van-image fit="cover"
             :heght="height || '100%'"
             :width="width || '100%'"
+            :style="setStyle"
             :src="url12"
             @click="clickPreview(url12)" />
     <van-image-preview
@@ -25,6 +26,10 @@ export default {
     imgUrl: {
       type: String,
       default: ""
+    },
+    setStyle: {
+        type: Object,
+        default: () => {}
     },
     width: {
       type: String,
