@@ -232,6 +232,14 @@
                             <div>出现以后，必然是底</div>
                         `
                     },
+                    {
+                        title: '葛式八法 - 买2（个股，周日线）',
+                        smallImg: 'gupiao/葛式八法/logo2.png',
+                        
+                        mainImg: 'gupiao/葛式八法/买2.png',
+                        example: ['gupiao/葛式八法/example2-1.png', 'gupiao/葛式八法/example2-2.png'],
+                        
+                    },
                 ]
             }
         },
