@@ -53,7 +53,7 @@
                         desc: '大盘模型',
                         mainImg: 'gupiao/亢龙有悔/klyh.png',
                         conditions: ['第一天的阴线尽量小', '第二天的阴线尽量大', '第三天的阳线要低开高收'],
-                        example: ['gupiao/亢龙有悔/example1.png', 'gupiao/亢龙有悔/example2.png'],
+                        example: ['gupiao/亢龙有悔/example1.png'],
                         remark: `
                             <div>止盈： 5-10日内的大阳线收盘价；任意阴线</div>
                             <div>止损： 该模型的最低价</div>
@@ -81,17 +81,6 @@
                         `
                     },
                     {
-                        title: '七星落长空 - I型（个股，日线）',
-                        smallImg: 'gupiao/七星/七星-1-img.png',
-                        desc: '下跌趋势中的底部模型',
-                        mainImg: 'gupiao/七星/七星-1.png',
-                        conditions: ['1. 阴阳线的真、假都可以(*①)', '2. 阴阳线的大、小都行', '3. 阴阳线的高低开都可以', '4. 下跌趋势中，基本都在底部'],
-                        example: ['gupiao/七星/example1-1.png', 'gupiao/七星/example12-1.png'],
-                        remark: `<a href="https://live.study.163.com/live/index.html?courseId=100080957&lesson=103776758&type=1">1. 第一阶段 -> 短线抄底模型 -> 2、3课 </a>
-                            <div>2. 无论 I型 还是 II型，都是短线抄底模型，见好就收，不要拿着不放</div>
-                        `
-                    },
-                    {
                         title: '七星落长空 - II型（个股，日线）',
                         smallImg: 'gupiao/七星/七星-2-img.png',
                         desc: '下跌趋势中的底部模型',
@@ -101,7 +90,7 @@
                         remark: '无论 I型 还是 II型，都是短线抄底模型，见好就收，不要拿着不放'
                     },
                     {
-                        title: '价格中枢（个股，周线）',
+                        title: '价格中枢1（个股，周线）',
                         smallImg: 'gupiao/价格中枢/logo.png',
                         desc: '下跌后的筑底',
                         mainImg: 'gupiao/价格中枢/jgzs.png',
@@ -109,6 +98,21 @@
                         remark: `
                             低开：既可是阴线， 也可以是阳线
                             <div>如果低开后实体很大就不是</div>
+                            新条件：
+                            <div>收益30% - 50%</div>
+                            <div>不能高开高走</div>
+                            <div>第二周最好别涨上来，希望弱势些</div>
+                            <div>第三周最好都是先跌后涨的(周一到周三跌，到周五涨)</div>
+                        `
+                    },
+                    {
+                        title: '价格中枢2（个股，周线）',
+                        smallImg: 'gupiao/价格中枢/logo2.png',
+                        desc: '下跌后的筑底',
+                        mainImg: 'gupiao/价格中枢/jgzs2.png',
+                        example: ['gupiao/价格中枢/example2-1.png', 'gupiao/价格中枢/example2-2.png'],
+                        remark: `
+                            <div>第二周高开后，确认是上涨状态，周三就可以买入</div>
                         `
                     },
                     {
@@ -140,7 +144,7 @@
                         smallImg: 'gupiao/飞龙在天/logo.png',
                         desc: '大盘好的时候用，超短期追涨停，80%胜率',
                         mainImg: 'gupiao/飞龙在天/flzt.png',
-                        example: ['gupiao/飞龙在天/example1.png', 'gupiao/飞龙在天/example2.png'],
+                        // example: ['gupiao/飞龙在天/example1.png', 'gupiao/飞龙在天/example2.png'],
                         remark: ``
                     },
                     {
@@ -201,7 +205,7 @@
                         smallImg: 'gupiao/出水芙蓉/logo.png',
                         desc: '主力低位洗盘模型，大盘比较弱的时候用',
                         mainImg: 'gupiao/出水芙蓉/csfr.png',
-                        example: ['gupiao/出水芙蓉/example1.png', 'gupiao/出水芙蓉/example2.png'],
+                        example: ['gupiao/出水芙蓉/example1.png', 'gupiao/出水芙蓉/example2.png', 'gupiao/出水芙蓉/example3.png'],
                         remark: `
                             <div>最好不要十字星</div>
                         `
@@ -223,7 +227,7 @@
                         smallImg: 'gupiao/柳暗花明/logo.png',
                         desc: '底部反转模型，主力底部的强势洗盘',
                         mainImg: 'gupiao/柳暗花明/lahm.png',
-                        example: ['gupiao/柳暗花明/example1.png', 'gupiao/柳暗花明/example2.png', 'gupiao/柳暗花明/example3.png'],
+                        // example: ['gupiao/柳暗花明/example1.png', 'gupiao/柳暗花明/example2.png', 'gupiao/柳暗花明/example3.png'],
                         remark: `
                             <div>出现以后，必然是底</div>
                         `

@@ -89,6 +89,7 @@ module.exports = {
             ],
             "/gupiao/":[
                 "",
+                "action",
                 "risk"
             ],
             "/npm/":[
