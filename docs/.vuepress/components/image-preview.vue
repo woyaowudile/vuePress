@@ -20,8 +20,8 @@
 </template>
 
 <script>
-
 export default {
+    inject: ['env'],
   props: {
     imgUrl: {
       type: String,
@@ -45,8 +45,8 @@ export default {
       show: false,
       images: [],
       index: 1,
-      // url12: require(this.imgUrl)
-      url12: require(`./../statcs/${this.imgUrl}`)
+      url12: `${this.env?.url}${this.imgUrl}`
+    //   url12: require(`./../statcs/${this.imgUrl}`)
     };
   },
   methods: {

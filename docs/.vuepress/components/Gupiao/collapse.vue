@@ -255,6 +255,21 @@
                         `
                         
                     },
+                    // {
+                    //     title: '神奇均线（个股，日线）',
+                    //     smallImg: 'gupiao/神奇均线/logo.png',
+                    //     // desc: '',
+                    //     mainImg: 'gupiao/神奇均线/sqjx.png',
+                    //     example: ['gupiao/神奇均线/example1.png', 'gupiao/神奇均线/example2.png'],
+                    //     remark: `
+                    //         <div><span style="color: #F4882F">快：5；</span><span style="color: #0096EF">中：13；</span><span style="color: #000">慢：34</span></div>
+                    //         <div style="font-size: 20px">A：</div>
+                    //         <div>k线允许跌破慢速均线</div>
+                    //         <div style="font-size: 20px">B：</div>
+                    //         <div>慢速均线、中速均线下穿快速均线后，无论谁上谁下</div>
+                    //     `
+                        
+                    // },
                 ]
             }
         },
