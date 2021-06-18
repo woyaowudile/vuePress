@@ -1,4 +1,4 @@
-image: node:9.11.1
+image: node:12.16.1
 
 pages:
  cache:
@@ -7,7 +7,7 @@ pages:
 
  script:
  - npm install
- - npm run docs:build
+ - npm run build
  artifacts:
    paths:
    - public
