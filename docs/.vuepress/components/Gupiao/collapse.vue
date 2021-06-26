@@ -108,11 +108,40 @@
                     {
                         title: '价格中枢2（个股，周线）',
                         smallImg: 'gupiao/价格中枢/logo2.png',
-                        desc: '下跌后的筑底',
+                        desc: '上涨初期或中期',
                         mainImg: 'gupiao/价格中枢/jgzs2.png',
                         example: ['gupiao/价格中枢/example2-1.png', 'gupiao/价格中枢/example2-2.png'],
                         remark: `
                             <div>第二周高开后，确认是上涨状态，周三就可以买入</div>
+                        `
+                    },
+                    {
+                        title: '看跌阴线3（个股，周线）',
+                        smallImg: 'gupiao/价格中枢/看跌阴线/logo3.png',
+                        desc: '上涨的末期',
+                        mainImg: 'gupiao/价格中枢/看跌阴线/kdyx3.png',
+                        example: ['gupiao/价格中枢/看跌阴线/example3-1.png', 'gupiao/价格中枢/看跌阴线/example3-2.png', 'gupiao/价格中枢/看跌阴线/example3-3.png'],
+                        remark: `
+                            <div>止盈： 50%+ </div>
+                            <div>止损： 近期最低价 </div>
+                            <div>光头不光脚(可以有一点点上影线，最好没有)</div>
+                            <div>不能是锤头</div>
+                            <div>不一定是最高，但一定是在高位出现的</div>
+                            <div>第二周 阴线、阳线无所谓。出现即卖</div>
+                        `
+                    },
+                    {
+                        title: '看涨阴线4（个股，周线）',
+                        smallImg: 'gupiao/价格中枢/看跌阴线/logo4.png',
+                        desc: '下跌后的筑底',
+                        mainImg: 'gupiao/价格中枢/看跌阴线/kdyx4.png',
+                        example: ['gupiao/价格中枢/看跌阴线/example4-1.png', 'gupiao/价格中枢/看跌阴线/example4-2.png', 'gupiao/价格中枢/看跌阴线/example4-3.png'],
+                        remark: `
+                            <div>止盈： 50%+ </div>
+                            <div>止损： 近期最低价 </div>
+                            <div>光头不光脚(可以有一点点上影线，最好没有)</div>
+                            <div>第二周 只能阳线</div>
+                            <div>周中买入（即确定后，周三、周四买入）</div>
                         `
                     },
                     {
@@ -146,6 +175,15 @@
                         mainImg: 'gupiao/飞龙在天/flzt.png',
                         // example: ['gupiao/飞龙在天/example1.png', 'gupiao/飞龙在天/example2.png'],
                         remark: ``
+                    },
+                    {
+                        title: '神龙摆尾-zero（个股，日线）',
+                        smallImg: 'gupiao/神龙摆尾0/logo.png',
+                        desc: '急速下跌/熊市末期',
+                        mainImg: 'gupiao/神龙摆尾0/slbw0.png',
+                        example: ['gupiao/神龙摆尾0/example1.png', 'gupiao/神龙摆尾0/example2.png', 'gupiao/神龙摆尾0/example3.png'],
+                        remark: `
+                        `
                     },
                     {
                         title: '神龙摆尾1（个股，日线）',
@@ -238,7 +276,9 @@
                         
                         mainImg: 'gupiao/葛式八法/买2.png',
                         example: ['gupiao/葛式八法/example2-1.png', 'gupiao/葛式八法/example2-2.png'],
-                        
+                        remark: `
+                            <div></div>
+                        `
                     },
                     {
                         title: '神奇均线（个股，日线）',
@@ -255,21 +295,29 @@
                         `
                         
                     },
-                    // {
-                    //     title: '神奇均线（个股，日线）',
-                    //     smallImg: 'gupiao/神奇均线/logo.png',
-                    //     // desc: '',
-                    //     mainImg: 'gupiao/神奇均线/sqjx.png',
-                    //     example: ['gupiao/神奇均线/example1.png', 'gupiao/神奇均线/example2.png'],
-                    //     remark: `
-                    //         <div><span style="color: #F4882F">快：5；</span><span style="color: #0096EF">中：13；</span><span style="color: #000">慢：34</span></div>
-                    //         <div style="font-size: 20px">A：</div>
-                    //         <div>k线允许跌破慢速均线</div>
-                    //         <div style="font-size: 20px">B：</div>
-                    //         <div>慢速均线、中速均线下穿快速均线后，无论谁上谁下</div>
-                    //     `
+                    {
+                        title: '鱼跃龙门（个股，月线）',
+                        smallImg: 'gupiao/鱼跃龙门/logo.png',
+                        // desc: '',
+                        mainImg: 'gupiao/鱼跃龙门/yylm.png',
+                        example: ['gupiao/鱼跃龙门/example1.png', 'gupiao/鱼跃龙门/example2.png'],
+                        remark: `
+                            <div>时间不确定，有可能3月，有可能半年以上</div>
+                            <div>不设止损</div>
+                        `
                         
-                    // },
+                    },
+                    {
+                        title: '隔山打牛（个股，日线）',
+                        smallImg: 'gupiao/隔山打牛/logo.png',
+                        desc: '上涨初期或中期',
+                        mainImg: 'gupiao/隔山打牛/gsdn.png',
+                        example: ['gupiao/隔山打牛/example1.png', 'gupiao/隔山打牛/example2.png'],
+                        remark: `
+                            <div>成交量不必依次降低</div>
+                        `
+                        
+                    },
                 ]
             }
         },
