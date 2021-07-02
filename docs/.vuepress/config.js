@@ -1,3 +1,37 @@
+
+const isProduction = ['production', 'prod'].includes(process.env.NODE_ENV);
+
+let configList = !isProduction ? [
+    { text: '主页', link: '/' },
+    { text: '内容分类',
+      items: [
+        { text: 'vpn', link: '/vpn/' },
+        { text: 'vue', link: '/vue/' },
+        // { text: 'es6', link: '/es6/' },
+        // { text: 'js', link: '/js/' },
+        { text: 'node', link: '/node/' },
+        { text: 'css', link: '/css/' },
+        { text: 'web', link: '/web/' },
+        { text: 'python', link: '/python/' },
+        // { text: 'Rongzer', link: '/rongzer/' },
+        // { text: 'test', link: '/test1/' },
+        // { text: '期货', link: '/future/' },
+        { text: '股票', link: '/gupiao/' },
+        { text: 'npm', link: '/npm/' },
+      ]
+    },
+    // { text: '关于', link: '/about/' },
+    // { text: 'Github', link: 'https://mengtx-6192.github.io' },
+] : [
+    { text: '主页', link: '/' },
+    { text: '内容分类',
+      items: [
+        { text: '股票', link: '/gupiao/' },
+      ]
+    }
+]
+
+
 module.exports = {
     title: '回到开始',
     description: 'mtx',
@@ -15,28 +49,7 @@ module.exports = {
     ],
     themeConfig: {
         log: '', // 图片链接或资源目录
-        nav: [
-            { text: '主页', link: '/' },
-            { text: '内容分类',
-              items: [
-                { text: 'vpn', link: '/vpn/' },
-                { text: 'vue', link: '/vue/' },
-                // { text: 'es6', link: '/es6/' },
-                // { text: 'js', link: '/js/' },
-                { text: 'node', link: '/node/' },
-                { text: 'css', link: '/css/' },
-                { text: 'web', link: '/web/' },
-                { text: 'python', link: '/python/' },
-                // { text: 'Rongzer', link: '/rongzer/' },
-                // { text: 'test', link: '/test1/' },
-                // { text: '期货', link: '/future/' },
-                { text: '股票', link: '/gupiao/' },
-                { text: 'npm', link: '/npm/' },
-              ]
-            },
-            // { text: '关于', link: '/about/' },
-            // { text: 'Github', link: 'https://mengtx-6192.github.io' },
-        ],
+        nav: configList,
         sidebar: {
             "/vpn/":[
                 "",
@@ -90,7 +103,8 @@ module.exports = {
             "/gupiao/":[
                 "",
                 "action",
-                "risk"
+                "risk",
+                // "analysis",
             ],
             "/npm/":[
                 "",
