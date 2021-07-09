@@ -50,3 +50,19 @@
 但是每次拉取、推送，还需要输入用户名、密码，所以配置： <br />
 `git config --global(全局时使用) credential.helper store` <br />
 :::
+
+
+## 四. 代码关联多个仓库
+> 本地项目 project，现在要同时上传到 githubA、githubB
+> 1. project已经是拉取的项目A
+> 2. git remote set-url --add origin http://githubB
+> 3. git push origin master
+```text
+如果报错：
+    有一个项目提示要先拉取再提交，那么就单独关联一下，即
+    git remote add other htt://githubB
+    git pull other master （将代码拉到本地，冲突合并等等处理完后）
+    git pull origin master (将最新的代码也拉取到本地)
+    git push origin master (最后直接推送即可)
+    最后可以 git remote remove other
+```
