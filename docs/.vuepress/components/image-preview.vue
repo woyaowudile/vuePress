@@ -5,8 +5,8 @@
       :heght="height || '100%'"
       :width="width || '100%'"
       :style="setStyle"
-      :src="url12"
-      @click="clickPreview(url12)"
+      :src="getUrl"
+      @click="clickPreview(getUrl)"
     />
     <van-image-preview
       v-model="show"
@@ -47,9 +47,18 @@ export default {
       show: false,
       images: [],
       index: 1,
-      url12: `${this.env?.url}${this.imgUrl}`,
+    //   url12: isProduction ? `${this.env?.url}${this.imgUrl}` :  require(`${this.env?.url}${this.imgUrl}`),
       //   url12: require(`./../statcs/${this.imgUrl}`)
     };
+  },
+  computed: {
+      isProduction() {
+          return ['production', 'prod'].includes(process.env.NODE_ENV)
+      },
+      getUrl() {
+        //   require 必须使用明确的地址前缀，不能用变量替代
+           return this.isProduction ? `${this.env?.url}${this.imgUrl}` :  require(`./../statcs${this.env?.url}${this.imgUrl}`)
+      }
   },
   methods: {
     clickPreview(url) {

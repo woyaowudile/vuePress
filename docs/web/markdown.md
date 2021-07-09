@@ -30,7 +30,7 @@
 ### 4. 图片
 >`1.语法： ![代码块的代码](../.vuepress/statcs/daimakuai.png '鼠标移入的提示')`
 >
->![引入本地图片](../.vuepress/statcs/daimakuai.png '鼠标移入的提示')
+>![引入本地图片](http://qianniu.mengtianxiang.top/daimakuai.png '鼠标移入的提示')
 >***
 >`2.语法： ![在线图片](https://www.baidu.com/img/baidu_jgylogo3.gif '鼠标移入的提示')`
 >
@@ -38,7 +38,7 @@
 > ***
 >`3.语法： <img src="../.vuepress/statcs/1.jpg" alt="">`
 >
-><img src="../.vuepress/statcs/1.jpg" alt="">
+><img src="http://qianniu.mengtianxiang.top/1.jpg" alt="">
 
 ### 5. 分割线
 >```text

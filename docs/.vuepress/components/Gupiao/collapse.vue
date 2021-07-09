@@ -90,7 +90,7 @@
                         remark: '无论 I型 还是 II型，都是短线抄底模型，见好就收，不要拿着不放'
                     },
                     {
-                        title: '价格中枢1（个股，周线）',
+                        title: '看跌做涨（个股，周线）',
                         smallImg: 'gupiao/价格中枢/logo.png',
                         desc: '下跌后的筑底',
                         mainImg: 'gupiao/价格中枢/jgzs.png',
@@ -106,13 +106,38 @@
                         `
                     },
                     {
-                        title: '价格中枢2（个股，周线）',
+                        title: '看涨做涨（个股，周线）',
                         smallImg: 'gupiao/价格中枢/logo2.png',
                         desc: '上涨初期或中期',
                         mainImg: 'gupiao/价格中枢/jgzs2.png',
                         example: ['gupiao/价格中枢/example2-1.png', 'gupiao/价格中枢/example2-2.png'],
                         remark: `
                             <div>第二周高开后，确认是上涨状态，周三就可以买入</div>
+                        `
+                    },
+                    {
+                        title: '看涨阴线1（个股，周线）',
+                        smallImg: 'gupiao/价格中枢/看涨阴线/logo1.png',
+                        desc: '上涨途中的回调',
+                        mainImg: 'gupiao/价格中枢/看涨阴线/kzyx1.png',
+                        example: ['gupiao/价格中枢/看涨阴线/example1-1.png', 'gupiao/价格中枢/看涨阴线/example1-2.png'],
+                        remark: `
+                        <div>止损：近期最低价</div>
+                        <div>第二周阳线的低开，相对于价格中枢来说</div>
+                        <div>周中或下周买入</div>
+                        `
+                    },
+                    {
+                        title: '看涨阴线2（个股，周线）',
+                        smallImg: 'gupiao/价格中枢/看涨阴线/logo2.png',
+                        desc: '上涨途中的回调',
+                        mainImg: 'gupiao/价格中枢/看涨阴线/kzyx2.png',
+                        example: ['gupiao/价格中枢/看涨阴线/example2-1.png', 'gupiao/价格中枢/看涨阴线/example2-2.png', 'gupiao/价格中枢/看涨阴线/example2-3.png'],
+                        remark: `
+                        <div>止损：近期最低价</div>
+                        <div>第二周无论高开、低开。放量、缩量 都可以</div>
+                        <div>大阴线的影线： 上必需要但不能太长， 下最好没有或极短</div>
+                        <div>周中或下周买入</div>
                         `
                     },
                     {
@@ -131,7 +156,7 @@
                         `
                     },
                     {
-                        title: '看涨阴线4（个股，周线）',
+                        title: '看跌阴线4（个股，周线）',
                         smallImg: 'gupiao/价格中枢/看跌阴线/logo4.png',
                         desc: '下跌后的筑底',
                         mainImg: 'gupiao/价格中枢/看跌阴线/kdyx4.png',

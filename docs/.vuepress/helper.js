@@ -6,7 +6,7 @@ export const STORAGE_KEY = 'user_auth_xxxxxxxxxxxx'
 export function checkAuth () 
 {
   var auth = JSON.parse(localStorage.getItem(STORAGE_KEY))
-  console.log(auth)
+//   console.log(auth)
   if(auth && auth.time){
     var preTime = new Date(auth.time)
     var nowTime = new Date().setHours(-1)

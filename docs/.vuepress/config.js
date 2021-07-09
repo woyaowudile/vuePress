@@ -1,7 +1,16 @@
 
 const isProduction = ['production', 'prod'].includes(process.env.NODE_ENV);
 
+console.log('环境：', process.env.NODE_ENV);
+
 let configList = !isProduction ? [
+    { text: '主页', link: '/' },
+    { text: '内容分类',
+      items: [
+        { text: '股票', link: '/gupiao/' },
+      ]
+    }
+] : [
     { text: '主页', link: '/' },
     { text: '内容分类',
       items: [
@@ -22,13 +31,6 @@ let configList = !isProduction ? [
     },
     // { text: '关于', link: '/about/' },
     // { text: 'Github', link: 'https://mengtx-6192.github.io' },
-] : [
-    { text: '主页', link: '/' },
-    { text: '内容分类',
-      items: [
-        { text: '股票', link: '/gupiao/' },
-      ]
-    }
 ]
 
 
