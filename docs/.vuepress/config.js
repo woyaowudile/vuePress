@@ -1,7 +1,7 @@
 
 const isProduction = ['production', 'prod'].includes(process.env.NODE_ENV);
 
-console.log('环境：', process.env.NODE_ENV);
+console.log('环境:', process.env.NODE_ENV);
 
 let configList = isProduction ? [
     { text: '主页', link: '/' },
