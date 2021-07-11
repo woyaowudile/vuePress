@@ -215,11 +215,26 @@
                         smallImg: 'gupiao/神龙摆尾1/logo.png',
                         desc: '筑底后震荡的第一个涨停板',
                         mainImg: 'gupiao/神龙摆尾1/slbw1.png',
-                        example: ['gupiao/神龙摆尾1/example1.png', 'gupiao/神龙摆尾1/example2.png'],
+                        example: ['gupiao/神龙摆尾1/example1.png', 'gupiao/神龙摆尾1/example2.png', 'gupiao/神龙摆尾1/example2.png'],
                         remark: `
                             <div>盈利30% - 50%</div>
+                            <div>下影线可以扎破箱体，但实体一定不能</div>
                             <div>V字型横盘也可以，但是不好</div>
                             <div>止盈的50%是从第一个涨停板的收盘价开始算，而不是买入的开盘价</div>
+                        `
+                    },
+                    {
+                        title: '神龙摆尾2（个股，日线）',
+                        smallImg: 'gupiao/神龙摆尾2/logo.png',
+                        desc: '筑底后震荡的第一个涨停板',
+                        mainImg: 'gupiao/神龙摆尾2/slbw2.png',
+                        example: ['gupiao/神龙摆尾2/example1.png', 'gupiao/神龙摆尾2/example2.png', 'gupiao/神龙摆尾2/example2.png'],
+                        remark: `
+                            <div>盈利30% - 50%</div>
+                            <div>k线的收盘价不能跌破涨停板的收盘价</div>
+                            <div>下影线可以刺穿</div>
+                            <div>如果是阴线，则任意位置(实体、影线)都不能跌破箱体</div>
+                            <div>成交量依次降低也可以，最好还是5和10的死叉</div>
                         `
                     },
                     {
@@ -257,10 +272,11 @@
                         smallImg: 'gupiao/以逸待劳/logo.png',
                         desc: '底部的主力洗盘',
                         mainImg: 'gupiao/以逸待劳/yydl.png',
-                        example: ['gupiao/以逸待劳/example1.png', 'gupiao/以逸待劳/example2.png'],
+                        example: ['gupiao/以逸待劳/example1.png', 'gupiao/以逸待劳/example2.png', 'gupiao/以逸待劳/example3.png'],
                         remark: `
                             <div>一定是下跌之后的上涨中</div>
                             <div>第五日的只要是阳线就行。不管高开低开、放量缩量、真假都无所谓</div>
+                            <div>等待一个爆发，没有可继续等待</div>
                         `
                     },
                     {
@@ -278,11 +294,12 @@
                         smallImg: 'gupiao/一箭双雕/logo.png',
                         desc: '中继加速模型，主力拉升前的洗盘',
                         mainImg: 'gupiao/一箭双雕/yjsd.png',
-                        example: ['gupiao/一箭双雕/example1.png', 'gupiao/一箭双雕/example2.png', 'gupiao/一箭双雕/example3.png'],
+                        example: ['gupiao/一箭双雕/example1.png', 'gupiao/一箭双雕/example2.png', 'gupiao/一箭双雕/example3.png', 'gupiao/一箭双雕/example4.png', 'gupiao/一箭双雕/example5.png'],
                         remark: `
                             <div>缓慢上涨 到 急速拉升 的过渡点</div>
                             <div>机会较少，盈利也会很多的。止盈自己把握，也可以使用推高止损的方式扩大盈利</div>
-                            <div>两个阴线最好是高开的</div>
+                            <div>两个阴线最好是高开的(加分项，不是必需的)</div>
+                            <div>案例中的第一根阳线，可以不是很大</div>
                         `
                     },
                     {
@@ -340,6 +357,18 @@
                         example: ['gupiao/隔山打牛/example1.png', 'gupiao/隔山打牛/example2.png'],
                         remark: `
                             <div>成交量不必依次降低</div>
+                        `
+                        
+                    },
+                    {
+                        title: '大有（个股，日线）',
+                        smallImg: 'gupiao/大有/logo.png',
+                        desc: '上涨初期的洗盘模型（21/07/10 - 2:30）',
+                        mainImg: 'gupiao/大有/dy.png',
+                        example: ['gupiao/大有/example1.png', 'gupiao/大有/example2.png', 'gupiao/大有/example3.png'],
+                        remark: `
+                            <div>4连阳就是4个，3个不行，5个也不行</div>
+                            <div>最后的阳线最好不大</div>
                         `
                         
                     },

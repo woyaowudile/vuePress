@@ -19,9 +19,9 @@ git init
 git add -A
 git commit -m $1
 
-# 如果你想要部署到 https://USERNAME.github.io
-git push -f https://github.com/Mengtx-6192/Mengtx-6192.github.io.git master
-# git push -f https://gitlab.com/Mengtx-6192/mengtx-6192.gitlab.io.git master
+# # 如果你想要部署到 https://USERNAME.github.io
+# git push -f https://github.com/Mengtx-6192/Mengtx-6192.github.io.git master
+# # git push -f https://gitlab.com/Mengtx-6192/mengtx-6192.gitlab.io.git master
 
 # 退出命令
 cd -
