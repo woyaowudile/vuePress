@@ -368,7 +368,83 @@
                         example: ['gupiao/大有/example1.png', 'gupiao/大有/example2.png', 'gupiao/大有/example3.png'],
                         remark: `
                             <div>4连阳就是4个，3个不行，5个也不行</div>
-                            <div>最后的阳线最好不大</div>
+                            <div>4连阳实体应该都不大</div>
+                            <div>最后的阳线最好不大，也可以是涨停板</div>
+                            <div>期望是买入后才涨，不应该是涨过了才买</div>
+                        `
+                        
+                    },
+                    {
+                        title: '一触即发(个股， 日线)',
+                        smallImg: 'gupiao/窓璧轴/一触即发/logo.png',
+                        desc: '窓璧轴理论（21/07/17 - 1:30）',
+                        mainImg: 'gupiao/窓璧轴/一触即发/ycjf.png',
+                        example: ['gupiao/窓璧轴/一触即发/example1.png', 'gupiao/窓璧轴/一触即发/example2.png', 'gupiao/窓璧轴/一触即发/example3.png'],
+                        remark: `
+                            <div>运行一周以上，>5天才有效</div>
+                            <div>上涨/下跌，应该能创新高/新低</div>
+                            <div>连续的涨停板没有参考价值</div>
+                        `
+                        
+                    },
+                    {
+                        title: '一举中第(个股， 日线)',
+                        smallImg: 'gupiao/窓璧轴/一举中第/logo.png',
+                        desc: '窓璧轴理论',
+                        mainImg: 'gupiao/窓璧轴/一举中第/yjzd.png',
+                        example: ['gupiao/窓璧轴/一举中第/example1.png', 'gupiao/窓璧轴/一举中第/example2.png', 'gupiao/窓璧轴/一举中第/example3.png'],
+                        remark: `
+                            <div>运行一周以上，最好>5天</div>
+                            <div>影线填补、实体填补都可以</div>
+                            <div>第二次填补要小于之前缺口的1/2，也就是小部分</div>
+                        `
+                        
+                    },
+                    {
+                        title: '一线生机(个股， 日线)',
+                        smallImg: 'gupiao/窓璧轴/一线生机/logo.png',
+                        desc: '窓璧轴理论',
+                        mainImg: 'gupiao/窓璧轴/一线生机/yxsj.png',
+                        example: ['gupiao/窓璧轴/一线生机/example1.png', 'gupiao/窓璧轴/一线生机/example2.png', 'gupiao/窓璧轴/一线生机/example3.png'],
+                        remark: `
+                            <div>等待确定的阳线： 中阳线、大阳线</div>
+                        `
+                        
+                    },
+                    {
+                        title: '一反常态(个股， 日线)',
+                        smallImg: 'gupiao/窓璧轴/一反常态/logo.png',
+                        desc: '窓璧轴理论',
+                        mainImg: 'gupiao/窓璧轴/一反常态/yfct.png',
+                        example: ['gupiao/窓璧轴/一反常态/example1.png', 'gupiao/窓璧轴/一反常态/example2.png', 'gupiao/窓璧轴/一反常态/example3.png'],
+                        remark: `
+                            <div>实体完全填补，无论阴线、阳线</div>
+                            <div></div>
+                            <div>说明主力控盘力度极强</div>
+                        `
+                        
+                    },
+                    {
+                        title: '结界均线(个股， 日线)',
+                        smallImg: 'gupiao/结界均线/logo.png',
+                        desc: '75日 均线（21/07/17 - 2:53）',
+                        mainImg: 'gupiao/结界均线/jx.png',
+                        example: ['gupiao/结界均线/example1.png', 'gupiao/结界均线/example2.png', 'gupiao/结界均线/example3.png'],
+                        remark: `
+                            <div>实体不能跌破均线</div>
+                            <div>必须要有下影线（影线可以不破均线）</div>
+                        `
+                    },
+                    {
+                        title: '龙战于野',
+                        smallImg: 'gupiao/龙战于野/logo.png',
+                        desc: '低位涨停（21/07/17 - 3:20）',
+                        mainImg: 'gupiao/龙战于野/lzyy.png',
+                        example: ['gupiao/龙战于野/example1.png', 'gupiao/龙战于野/example2.png', 'gupiao/龙战于野/example3.png'],
+                        remark: `
+                            <div>涨停板可以是一字</div>
+                            <div>阴、阳线高开低开平开无所谓</div>
+                            <div>低位、中位都可以</div>
                         `
                         
                     },
