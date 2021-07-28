@@ -3,7 +3,7 @@ const isProduction = ['production', 'prod'].includes(process.env.NODE_ENV);
 
 console.log('环境:', process.env.NODE_ENV);
 
-let configList = !isProduction ? [
+let configList = isProduction ? [
     { text: '主页', link: '/' },
     { text: '内容分类',
       items: [
@@ -68,20 +68,21 @@ module.exports = {
                 "skills"
             ],
             "/node/":[
-                ""
+                "",
+                "exports和export"
             ],
             "/css/":[
                 "",
                 "sass"
             ],
             "/web/":[
+                "git",
+                "note",
+                "webpack",
+                "linux",
                 "",
                 "study",
                 "markdown",
-                "note",
-                "linux",
-                "git",
-                "webpack"
             ],
             "/python/":[
                 "",
@@ -104,6 +105,7 @@ module.exports = {
             ],
             "/gupiao/":[
                 "",
+                "norm",
                 "action",
                 "risk",
                 // "analysis",

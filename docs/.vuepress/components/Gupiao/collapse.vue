@@ -405,7 +405,7 @@
                         smallImg: 'gupiao/窓璧轴/一线生机/logo.png',
                         desc: '窓璧轴理论',
                         mainImg: 'gupiao/窓璧轴/一线生机/yxsj.png',
-                        example: ['gupiao/窓璧轴/一线生机/example1.png', 'gupiao/窓璧轴/一线生机/example2.png', 'gupiao/窓璧轴/一线生机/example3.png'],
+                        example: ['gupiao/窓璧轴/一线生机/example1.png', 'gupiao/窓璧轴/一线生机/example2.png'],
                         remark: `
                             <div>等待确定的阳线： 中阳线、大阳线</div>
                         `
@@ -443,8 +443,10 @@
                         example: ['gupiao/龙战于野/example1.png', 'gupiao/龙战于野/example2.png', 'gupiao/龙战于野/example3.png'],
                         remark: `
                             <div>涨停板可以是一字</div>
+                            <div>大阴线也可以是涨停板</div>
                             <div>阴、阳线高开低开平开无所谓</div>
                             <div>低位、中位都可以</div>
+                            <div>止损： 涨停版的开盘价（适用于所有用到涨停板的模型）</div>
                         `
                         
                     },

@@ -14,6 +14,9 @@
 >> 查看远端分支 git branch -r <br />
 >> 查看所有分支 git branch -a
 
+> 如果远程分支被删，本地还有被删除的分支
+>> 更新本地分支 git remote prune origin
+
 > 如果是已经在开发的仓库，本地git init后也只能看到master分支 <br />
 >> 使用命令： git fetch 获取远端所有分支
 
@@ -60,9 +63,12 @@
 ```text
 如果报错：
     有一个项目提示要先拉取再提交，那么就单独关联一下，即
-    git remote add other htt://githubB
-    git pull other master （将代码拉到本地，冲突合并等等处理完后）
-    git pull origin master (将最新的代码也拉取到本地)
-    git push origin master (最后直接推送即可)
-    最后可以 git remote remove other
+    1.
+        git remote add other htt://githubB
+        git pull other master （将代码拉到本地，冲突合并等等处理完后）
+        git pull origin master (将最新的代码也拉取到本地)
+        git push origin master (最后直接推送即可)
+        最后可以 git remote remove other
+    2.
+        git push origin master:master (当前本地所在分支:远程分支)
 ```
