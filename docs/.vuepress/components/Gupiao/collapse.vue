@@ -251,6 +251,14 @@
                         `
                     },
                     {
+                        title: '神龙摆尾4（个股，日线）',
+                        smallImg: 'gupiao/神龙摆尾4/logo.png',
+                        desc: '（21/07/24 - 2:18）',
+                        mainImg: 'gupiao/神龙摆尾4/slbw4.png',
+                        example: ['gupiao/神龙摆尾4/example1.png', 'gupiao/神龙摆尾4/example2.png'],
+                        remark: ``
+                    },
+                    {
                         title: '反客为主（个股，日线）',
                         smallImg: 'gupiao/反客为主/logo.png',
                         desc: '上涨结构(*②)中的某个位置',
@@ -334,6 +342,17 @@
                             <div>k线允许跌破慢速均线</div>
                             <div style="font-size: 20px">B：</div>
                             <div>慢速均线、中速均线下穿快速均线后，无论谁上谁下</div>
+                        `
+                        
+                    },
+                    {
+                        title: '神奇数字（个股，月>周>日）',
+                        smallImg: 'gupiao/神奇数字/logo.png',
+                        desc: '（21/07/31 - 2:20）',
+                        mainImg: 'gupiao/神奇数字/sqsz.png',
+                        example: ['gupiao/神奇数字/example1.png', 'gupiao/神奇数字/example2.png'],
+                        remark: `
+                            <div>买入后短期内即可达到目标</div>
                         `
                         
                     },
@@ -445,7 +464,7 @@
                             <div>涨停板可以是一字</div>
                             <div>大阴线也可以是涨停板</div>
                             <div>阴、阳线高开低开平开无所谓</div>
-                            <div>低位、中位都可以</div>
+                            <div>低位、中位都可以，也可以横盘中使用，但必须是低位</div>
                             <div>止损： 涨停版的开盘价（适用于所有用到涨停板的模型）</div>
                         `
                         
