@@ -51,8 +51,9 @@
 >> <image-preview imgUrl="web/linux/putty-jobs-1.png" width='200'></image-preview>
 > 可以通过 ctrl + Z 挂起, 且可以通过jobs查看所有挂起的任务
 >> <image-preview imgUrl="web/linux/putty-jobs-2.png" width='200'></image-preview>
->> bg [number] 启动停止的任务<br />
->> fg [number], 将后台任务放到前台运行<br />
+>> bg %[number] 启动停止的任务<br />
+>> fg %[number], 将后台任务放到前台运行<br />
+>> kill %[number] 或者 jobs -l 获取到pid, 然后kill pid<br />
 
 <br />
 
@@ -66,6 +67,10 @@
 > 实时查看输出日志: 
 >> tail -f log.file. <br /> 
 >> 退出ctrl + c. 也可以挂起, 同jobs
+
+:::warning
+nohup挂起后, 退出putty 使用命令 exit
+:::
 
 
 ### 4. 内网穿透
