@@ -55,6 +55,7 @@
                         conditions: ['第一天的阴线尽量小', '第二天的阴线尽量大', '第三天的阳线要低开高收'],
                         example: ['gupiao/亢龙有悔/example1.png'],
                         remark: `
+                            <div>大阴线 实体 > 小阴线 实体 的 2倍以上</div>
                             <div>止盈： 5-10日内的大阳线收盘价；任意阴线</div>
                             <div>止损： 该模型的最低价</div>
                             <div>可以多在沪深300，上证50里找</div>
@@ -365,6 +366,9 @@
                         remark: `
                             <div>时间不确定，有可能3月，有可能半年以上</div>
                             <div>不设止损</div>
+                            <div>从下跌到翻倍, 4年以上</div>
+                            <div>筑底时间要长</div>
+                            <div>底部可是,单底\多底\圆弧底,</div>
                         `
                         
                     },
@@ -444,6 +448,16 @@
                         
                     },
                     {
+                        title: '蜻蜓点水(个股， 日线)',
+                        smallImg: 'gupiao/蜻蜓点水/logo.png',
+                        desc: '价格筑底 上涨初期 (缺口理论应用)',
+                        mainImg: 'gupiao/蜻蜓点水/qtds.png',
+                        example: ['gupiao/蜻蜓点水/example1.png', 'gupiao/蜻蜓点水/example2.png', 'gupiao/蜻蜓点水/example3.png'],
+                        remark: `
+                            <div>缺口被填补无论阴阳线或影线</div>
+                        `
+                    },
+                    {
                         title: '结界均线(个股， 日线)',
                         smallImg: 'gupiao/结界均线/logo.png',
                         desc: '75日 均线（21/07/17 - 2:53）',
@@ -455,7 +469,7 @@
                         `
                     },
                     {
-                        title: '龙战于野',
+                        title: '龙战于野(个股， 日线)',
                         smallImg: 'gupiao/龙战于野/logo.png',
                         desc: '低位涨停（21/07/17 - 3:20）',
                         mainImg: 'gupiao/龙战于野/lzyy.png',
@@ -467,7 +481,15 @@
                             <div>低位、中位都可以，也可以横盘中使用，但必须是低位</div>
                             <div>止损： 涨停版的开盘价（适用于所有用到涨停板的模型）</div>
                         `
-                        
+                    },
+                    {
+                        title: 'v型反转(个股， 日线)',
+                        smallImg: 'gupiao/v型反转/logo.png',
+                        desc: '',
+                        mainImg: 'gupiao/v型反转/vxfz.png',
+                        example: ['gupiao/v型反转/example1.png', 'gupiao/v型反转/example2.png', 'gupiao/v型反转/example3.png'],
+                        remark: `
+                        `
                     },
                 ]
             }

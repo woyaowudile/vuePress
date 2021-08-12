@@ -1,106 +1,101 @@
-# linux安装环境
 
-## 获取管理员权限
+## 一. linux安装环境
+
+### 获取管理员权限
 > sudo su root
 
-## 安装linux工具
+### 安装linux工具
 
-> 例如安装node：wget https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-arm64.tar.gz
+> 例如安装node：wget https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-arm64.tar.gz <br />
+> 目前 deepin15 : apt-get install node / apt-get install git
 
-## 安装完后，需要解压
+### 安装完后，需要解压
 
 > tar xvf  node-v12.14.1-linux-arm64.tar.gz
 
-## 修改文件名字
+### 修改文件名字
 
 > mv node-v12.14.1-linux-arm64 node-v12.14.1
 
-## 将node移动到某个文件夹中
+### 将node移动到某个文件夹中
 
 > mv  /root /node-v12.14.1-1.0/  /usr/sbin/
 :::tip 提示
 （mv 既能修改名字也能做move用）
 :::
 
-## 全局注册
-> node：ln -s /usr/sbin/node-v12.14.1-1.0/bin/node  /usr/local/bin/ </br>
-> npm: ln -s /usr/sbin/node-v12.14.1-1.0/bin/npm  /usr/local/bin/
+## 二. 设置服务器
+> <a target="_blank" href="https://www.jianshu.com/p/7dc15bc448c7"> 原文地址 </a>
 
-*********************************************************************************
->以上在deepin v15.11上安装失败。使用sudo apt install node 一键安装成功
->> 安装node版本管理 npm install -g n
->>> n ls 查看版本， 安装最新版本 n 12.16.2 </br>
->>> n rm xxx 移除版本, n use xxx使用版本
->> 一般来说到这里就结束了，但是在项目中npm run serve报错
->>> `ound bindings for the following environments: - Windows 64-bit with Node.js 12.x ` </br>
->>> 一般来说就是node和sass版本的问题：重新安装npm rebuild node-sass
+### 1. 开启ssh服务
+> 查看是否有ssh服务：ssh localhost
+>> 若出现：“ssh：connect to host localhost port 22: Connection refused”，则表明未安装 <br />
 
->> 安装git ： apt-get install git </br>
->> 安装vue-cli: npm i -g vue-cli (注意：如果失败，则在/usr/local/bin下重新安装)
->>> 使用vue命令安装uni-app, 但是需要vue3.0， 命令: npm i -g @vue/cli </br>
->>> a. 卸载npm uninstall -g vue-cli，再安装npm install -g @vue/cli </br>
->>> b. 创建uni-app项目， vue create -p dcloudio/uni-preset-vue xxxx
-\
+> 安装：sudo apt-get install openssh-server
+>> 安装完成后，重新输入ssh localhost, 如果出现提示都选择yes <br />
 
+> 查看是否开启ssh：ps -e|grep ssh
+>> 输入密码后，有显示 sshd 表示成功<br />
+>> 未成功：sudo /etc/init.d/ssh start<br />
 
+### 2. putty连接服务器
+><image-preview imgUrl="web/linux/putty.png" width='200'></image-preview>
+><image-preview imgUrl="web/linux/putty-login.png" width='200'></image-preview>
+> 设置超时时间
+>> putty静置一段时间后，会提示连接错误<br />
+>> <image-preview imgUrl="web/linux/putty-error.png" width='200'></image-preview>
+>> <image-preview imgUrl="web/linux/putty-timeout.png" width='200'></image-preview>
 
-*********************************************************************************
+### 3. 挂起任务
+> 在终端运行一个程序,会占用终端,无法做其他事情
+>> <image-preview imgUrl="web/linux/putty-jobs-1.png" width='200'></image-preview>
+> 可以通过 ctrl + Z 挂起, 且可以通过jobs查看所有挂起的任务
+>> <image-preview imgUrl="web/linux/putty-jobs-2.png" width='200'></image-preview>
+>> bg [number] 启动停止的任务<br />
+>> fg [number], 将后台任务放到前台运行<br />
 
-配置淘宝镜像： npm    install    -g    cnpm    --registry=https://registry.npm.taobao.org
+<br />
 
-设置rar软件:
-下载：
-mkdir -p  /home/oldboy/tools
-cd /home/oldboy/tools
-wget http://www.rarlab.com/rar/rarlinux-3.8.0.tar.gz
-安装：
-tar zxvf rarlinux-3.8.0.tar.gz
-cd rar
-make
-make install
-压缩：
-rar a etc.rar /etc  // 将文件夹etc压缩成etc.rar
-解压缩：
-rar x etc.rar  // 解压缩etc.rar
-unrar -e etc.tar // 获取rar命令
+> nohup (cz挂起的任务,关闭终端后会被终止) 
+>> nohup npm run serve > log.file 2>&1 &<br />
+>> <image-preview imgUrl="web/linux/nohup-1.png" width='200'></image-preview>
+> 查看: ps -ef|grep node , 关闭: kill + 端口<br />
+> 查看: ps -aux|grep node , 效果同上,相差不大<br />
+>> <image-preview imgUrl="web/linux/nohup-kill.png" width='200'></image-preview>
 
-
-文件夹含义
-/usr/bin    系统预设的可执行文件，如开关机在这里，优先级最高
-/usr/local/bin   用户本身相关的可执行文件，如自己安装的软件推荐放在这里，会提升到全局
-/usr/sbin    基本同上
-
-删除（-r递归向下，-f不提示）
-删除文件夹：rm -rf /xxxx/xxx
-删除文件：rm -f /xxx/xxx.txt
-
-解压压缩相关
-    z:代表的是压缩
-    c:代表的是打包
-    x:代表的是解压
-    v:代表的是过程
-    f:代表的是指定文件名
-    因此zcvf :   打包压缩
-    例如:  (tar   -zcvf    xxx.tar.gz    aaa.txt   bbb.txt   ccc.txt)   把aaa.txt   bbb.txt   ccc.txt打包压缩为一个名叫xxx.tar.gz 压缩包
-    xvf: 解压缩
-    例如(tar  -xvf   xxx.tar.gz    -C/usr)   -C代表解压的位置  把xxx.tar.gz解压缩到根目录下的usr目录
+> 实时查看输出日志: 
+>> tail -f log.file. <br /> 
+>> 退出ctrl + c. 也可以挂起, 同jobs
 
 
-Deepin系统中手动开启swap的方法
+### 4. 内网穿透
+> 如果linux使用的wifi，外部访问l会提示连接不上<br />
+> 原因：只有局域网内的设备才能互ping<br />
+> 办法：使用内网穿透，也就是端口映射到外网上去
+>> 这里使用的是ngrok,<a target="_blank" href="https://ngrok.com/download">linux的电脑访问ngrok</a>,按说明安装即可
+</br>
 
-swap（交换空间）的大小建议设置和你的实际物理内存一样大，如你的内存是8G的，则可将下面的count的值设为8192（当然这只是参考值，你可根据你系统运行的情况自行调整）。
+> 配置隧道
+```text
+1. 设置 ngrok 隧道：（/root/.ngrok2/ngrok.yml）auth_token也在该文件中
 
-sudo dd if=/dev/zero of=/root/swapfile bs=1M count=4096　#增加4G交换空间
 
-sudo mkswap /root/swapfile　#建立swap的文件系统
+tunnels:
+    tunnel1:
+        addr: 22
+        proto: tcp
+    tunnel2:
+        addr: 3333
+        proto: http
+        -bing-tls: false 
+        // false: 只使用http，true：只使用https
+        // 不配置就二者都有，免费版只有4个隧道，例如3333就会占用2个隧道
+    tunnel3:
+        addr: 8080
+        proto: http
+        -bing-tls: false 
 
-sudo swapon /root/swapfile　#启用swap文件
-
-echo "/root/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab　#更新fstab文件
-
-deepin登录界面循坏：
-	1. sudo apt-get autoremove
-	2. sudo apt-get install ubuntu-desktop
-	3. sudo rm -r .Xauthority
-	4. sudo nano /etc/profile 然后注释掉最后的几个export，如果没有就不用管
-	5. 重启
+2. 启动
+ngrok start --all // 启动所有端口
+ngrok start tunnel1 tunnel2 // 启动指定端口
+```
