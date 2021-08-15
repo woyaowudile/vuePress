@@ -334,7 +334,8 @@
                     {
                         title: '神奇均线（个股，日线）',
                         smallImg: 'gupiao/神奇均线/logo.png',
-                        // desc: '',
+                        desc: '下跌横盘后， 上涨初期',
+                        conditions: ['回调的幅度(举例跳起来之前的下蹲，不能太低不能太高)', '有效突破/有效支撑(举例箱体的上下沿)'],
                         mainImg: 'gupiao/神奇均线/sqjx.png',
                         example: ['gupiao/神奇均线/example1.png', 'gupiao/神奇均线/example2.png'],
                         remark: `
@@ -487,7 +488,7 @@
                         smallImg: 'gupiao/v型反转/logo.png',
                         desc: '',
                         mainImg: 'gupiao/v型反转/vxfz.png',
-                        example: ['gupiao/v型反转/example1.png', 'gupiao/v型反转/example2.png', 'gupiao/v型反转/example3.png'],
+                        example: ['gupiao/v型反转/example1.png', 'gupiao/v型反转/example2.png', 'gupiao/v型反转/example3.png', 'gupiao/v型反转/example4.png'],
                         remark: `
                         `
                     },
