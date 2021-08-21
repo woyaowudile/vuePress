@@ -344,6 +344,7 @@
                             <div>k线允许跌破慢速均线</div>
                             <div style="font-size: 20px">B：</div>
                             <div>慢速均线、中速均线下穿快速均线后，无论谁上谁下</div>
+                            <div>止损： 1. 快速、中速 死叉；2. 慢速均线向下</div>
                         `
                         
                     },
@@ -447,6 +448,17 @@
                             <div>说明主力控盘力度极强</div>
                         `
                         
+                    },
+                    {
+                        title: '有效突破(个股， 日线)',
+                        smallImg: 'gupiao/有效突破/logo.png',
+                        desc: '熊市末期 价格筑底后 (缺口理论应用)',
+                        mainImg: 'gupiao/有效突破/qtds.png',
+                        example: ['gupiao/有效突破/example1.png', 'gupiao/有效突破/example2.png', 'gupiao/有效突破/example3.png'],
+                        remark: `
+                            <div>缺口 ‘不被填补’</div>
+                            <div>阳线实体必须高过近期所有实体</div>
+                        `
                     },
                     {
                         title: '蜻蜓点水(个股， 日线)',
