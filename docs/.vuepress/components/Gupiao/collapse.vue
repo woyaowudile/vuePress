@@ -8,7 +8,10 @@
                 </template>
                 <div class="gupiao-collapse--content">
                     <div>
-                        <div class="size16 title">说明：</div>
+                        <div class="size16 title flexbox">
+                            <span class="flex1">说明：</span>
+                            <gpExample :name="getExampleName(item.title)"></gpExample>
+                        </div>
                         <div class="red textIndent">{{item.desc}}</div>
                     </div>
                     <div v-if="item.mainImg"><image-preview :imgUrl="item.mainImg" ></image-preview></div>
@@ -40,8 +43,9 @@
 
 <script>
     import imagePreview from '../image-preview.vue'
+    import gpExample from './example.vue'
     export default {
-        components: { imagePreview },
+        components: { imagePreview, gpExample },
         data() {    
             return {
                 activeNames: ['0'],
@@ -133,7 +137,7 @@
                         smallImg: 'gupiao/价格中枢/看涨阴线/logo2.png',
                         desc: '上涨途中的回调',
                         mainImg: 'gupiao/价格中枢/看涨阴线/kzyx2.png',
-                        example: ['gupiao/价格中枢/看涨阴线/example2-1.png', 'gupiao/价格中枢/看涨阴线/example2-2.png', 'gupiao/价格中枢/看涨阴线/example2-3.png'],
+                        example: ['gupiao/价格中枢/看涨阴线/example2-1.png', 'gupiao/价格中枢/看涨阴线/example2-2.png'],
                         remark: `
                         <div>止损：近期最低价</div>
                         <div>第二周无论高开、低开。放量、缩量 都可以</div>
@@ -366,11 +370,11 @@
                         mainImg: 'gupiao/鱼跃龙门/yylm.png',
                         example: ['gupiao/鱼跃龙门/example1.png', 'gupiao/鱼跃龙门/example2.png'],
                         remark: `
-                            <div>时间不确定，有可能3月，有可能半年以上</div>
+                            <div>时间不确定，有可能3月，更多是半年-1年左右</div>
                             <div>不设止损</div>
-                            <div>从下跌到翻倍, 4年以上</div>
+                            <div>从下跌到翻倍, 4年以上， 下跌2年，筑底2-3年</div>
                             <div>筑底时间要长</div>
-                            <div>底部可是,单底\多底\圆弧底,</div>
+                            <div>底部可是,单底\多底\圆弧底, 最好还有上升三角形(反转形态)</div>
                         `
                         
                     },
@@ -453,10 +457,11 @@
                         title: '有效突破(个股， 日线)',
                         smallImg: 'gupiao/有效突破/logo.png',
                         desc: '熊市末期 价格筑底后 (缺口理论应用)',
-                        mainImg: 'gupiao/有效突破/qtds.png',
+                        mainImg: 'gupiao/有效突破/yxtp.png',
                         example: ['gupiao/有效突破/example1.png', 'gupiao/有效突破/example2.png', 'gupiao/有效突破/example3.png'],
                         remark: `
                             <div>缺口 ‘不被填补’</div>
+                            <div>一周内，时间应不太长</div>
                             <div>阳线实体必须高过近期所有实体</div>
                         `
                     },
@@ -465,7 +470,7 @@
                         smallImg: 'gupiao/蜻蜓点水/logo.png',
                         desc: '价格筑底 上涨初期 (缺口理论应用)',
                         mainImg: 'gupiao/蜻蜓点水/qtds.png',
-                        example: ['gupiao/蜻蜓点水/example1.png', 'gupiao/蜻蜓点水/example2.png', 'gupiao/蜻蜓点水/example3.png'],
+                        example: ['gupiao/蜻蜓点水/example1.png', 'gupiao/蜻蜓点水/example2.png'],
                         remark: `
                             <div>缺口被填补无论阴阳线或影线</div>
                         `
@@ -504,6 +509,16 @@
                         remark: `
                         `
                     },
+                    {
+                        title: '双龙取水(个股， 日线)',
+                        smallImg: 'gupiao/双龙取水/logo.png',
+                        desc: '',
+                        mainImg: 'gupiao/双龙取水/slqs.png',
+                        example: ['gupiao/双龙取水/example1.png', 'gupiao/双龙取水/example2.png', 'gupiao/双龙取水/example3.png', 'gupiao/双龙取水/example4.png'],
+                        remark: `
+                            <div>一字板也算，一字和涨停板的4种排列组合</div>
+                        `
+                    },
                 ]
             }
         },
@@ -513,6 +528,15 @@
                     'width': '80px',
                     'margin-left': '10px !important',
                     'vertical-align': 'middle'
+                }
+            },
+            getExampleName() {
+                return (title) => {
+                    let name = title
+                    if (title.indexOf('（')) {
+                        name = title.split('（')[0]
+                    }
+                    return name
                 }
             }
         }
@@ -544,6 +568,12 @@
             margin: 5px 0 10px 0 !important;
         }
     }
+}
+.flexbox {
+    display: flex;
+}
+.flex1 {
+    flex: 1;
 }
 .red {
     color: red

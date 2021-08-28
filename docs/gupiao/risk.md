@@ -46,6 +46,7 @@
   <image-preview  width='500' imgUrl="gupiao/risk/example5-2.png" ></image-preview>
 </details>
 
+
 ## 风险识别6
 
 > 介绍：
@@ -59,4 +60,19 @@
   <summary><mark><font color=darkred>2. 举例</font></mark></summary>
   <image-preview  width='500' imgUrl="gupiao/risk/example6-1.png" ></image-preview>
   <image-preview  width='500' imgUrl="gupiao/risk/example6-2.png" ></image-preview>
+</details>
+
+
+## 风险识别7
+
+> 介绍：
+<details>
+  <summary><mark><font color=darkred>1. 条件</font></mark></summary>
+  <div>顶部中、大阴线</div>
+  <div>放量（和近期比较）</div>
+</details>
+<details>
+  <summary><mark><font color=darkred>2. 举例</font></mark></summary>
+  <image-preview  width='500' imgUrl="gupiao/risk/example7-1.png" ></image-preview>
+  <image-preview  width='500' imgUrl="gupiao/risk/example7-2.png" ></image-preview>
 </details>
