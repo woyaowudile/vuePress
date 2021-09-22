@@ -209,6 +209,9 @@
                     {
                         title: '神龙摆尾-zero（个股，日线）',
                         smallImg: 'gupiao/神龙摆尾0/logo.png',
+                        conditions: [
+                            '买点后3-5日，快速均线拐头向上，增加成功率'
+                        ],
                         desc: '急速下跌/熊市末期',
                         mainImg: 'gupiao/神龙摆尾0/slbw0.png',
                         example: ['gupiao/神龙摆尾0/example1.png', 'gupiao/神龙摆尾0/example2.png', 'gupiao/神龙摆尾0/example3.png'],
@@ -364,6 +367,19 @@
                         
                     },
                     {
+                        title: '神奇数字2（个股，月>周>日）',
+                        smallImg: 'gupiao/神奇数字2/logo.png',
+                        desc: '（21/07/31 - 2:20）',
+                        mainImg: 'gupiao/神奇数字2/sqsz.png',
+                        example: ['gupiao/神奇数字2/example1.png', 'gupiao/神奇数字2/example2.png'],
+                        remark: `
+                            <div>不需要顶顶抬高，但第一个高点是之前的冲高，后面的高点都没有达到前高</div>
+                            <div>四个确定高点，7跟k线以内有效突破后下月买入，没有也可以第8根买入</div>
+                            <div>第一个高点回落后产生的低点，但第4个高点后的7根k线都不能低于该点</div>
+                        `
+                        
+                    },
+                    {
                         title: '鱼跃龙门（个股，月线）',
                         smallImg: 'gupiao/鱼跃龙门/logo.png',
                         // desc: '',
@@ -385,6 +401,7 @@
                         mainImg: 'gupiao/隔山打牛/gsdn.png',
                         example: ['gupiao/隔山打牛/example1.png', 'gupiao/隔山打牛/example2.png'],
                         remark: `
+                            <div>盈利 10%-30%.一月内</div>
                             <div>成交量不必依次降低</div>
                         `
                         
@@ -392,10 +409,15 @@
                     {
                         title: '大有（个股，日线）',
                         smallImg: 'gupiao/大有/logo.png',
+                        conditions: [
+                            '慢速均线向上或趋平',
+                            '金叉后不久'
+                        ],
                         desc: '上涨初期的洗盘模型（21/07/10 - 2:30）',
                         mainImg: 'gupiao/大有/dy.png',
                         example: ['gupiao/大有/example1.png', 'gupiao/大有/example2.png', 'gupiao/大有/example3.png'],
                         remark: `
+                            <div>盈利 10%-20%.俩月内</div>
                             <div>4连阳就是4个，3个不行，5个也不行</div>
                             <div>4连阳实体应该都不大</div>
                             <div>最后的阳线最好不大，也可以是涨停板</div>
@@ -517,6 +539,36 @@
                         example: ['gupiao/双龙取水/example1.png', 'gupiao/双龙取水/example2.png', 'gupiao/双龙取水/example3.png', 'gupiao/双龙取水/example4.png'],
                         remark: `
                             <div>一字板也算，一字和涨停板的4种排列组合</div>
+                        `
+                    },
+                    {
+                        title: '茶杯底(个股， 日线)',
+                        smallImg: 'gupiao/茶杯底/logo.png',
+                        desc: '',
+                        mainImg: 'gupiao/茶杯底/slqs.png',
+                        example: ['gupiao/茶杯底/example1.png', 'gupiao/茶杯底/example2.png', 'gupiao/茶杯底/example3.png', 'gupiao/茶杯底/example4.png'],
+                        remark: `
+                            <div>需要有茶杯把，更加确认</div>
+                        `
+                    },
+                    {
+                        title: '九死一生(个股， 日线)',
+                        smallImg: 'gupiao/九死一生/logo1.png',
+                        desc: '',
+                        mainImg: 'gupiao/九死一生/jsys1.png',
+                        example: ['gupiao/九死一生/example1-1.png', 'gupiao/九死一生/example1-2.png', 'gupiao/九死一生/example1-3.png', 'gupiao/九死一生/example4.png'],
+                        remark: `
+                            <div>熊市末期也可以是上涨后的回调，叫阶段性熊市</div>
+                        `
+                    },
+                    {
+                        title: '九死一生(个股， 日线)',
+                        smallImg: 'gupiao/九死一生/logo2.png',
+                        desc: '',
+                        mainImg: 'gupiao/九死一生/jsys2.png',
+                        example: ['gupiao/九死一生/example2-1.png', 'gupiao/九死一生/example2-2.png', 'gupiao/九死一生/example2-3.png', 'gupiao/九死一生/example4.png'],
+                        remark: `
+                            <div>第二天可以是阴线、可以是阳线</div>
                         `
                     },
                 ]
