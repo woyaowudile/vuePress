@@ -6,8 +6,8 @@
     "scripts": {
         "dev": "vuepress dev docs",
         "build": "vuepress build docs",
-        "build:mengtx": "sh build-mengtx.sh",
-        "build:woyaowudile": "sh build-woyaowudile.sh",
+        "build-mengtx": "sh build-mengtx.sh",
+        "build-woyaowudile": "sh build-woyaowudile.sh",
         "deploy": "sh deploy.sh",
         "deploy:linux": "sh deploy-linux.sh"
     },

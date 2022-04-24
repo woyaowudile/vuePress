@@ -3,7 +3,7 @@
         <el-collapse v-model="activeNames">
             <el-collapse-item :name="i" v-for="(item, i) in model">
                 <template slot="title" class="collapse-title">
-                    <span>{{item.title}}</span>
+                    <span>{{ item.title }}</span>
                     <image-preview v-if="item.smallImg" :imgUrl="item.smallImg" :setStyle="getStyle"></image-preview>
                 </template>
                 <div class="gupiao-collapse--content">
@@ -12,19 +12,19 @@
                             <span class="flex1">说明：</span>
                             <gpExample :name="getExampleName(item.title)"></gpExample>
                         </div>
-                        <div class="red textIndent">{{item.desc}}</div>
+                        <div class="red textIndent">{{ item.desc }}</div>
                     </div>
-                    <div v-if="item.mainImg"><image-preview :imgUrl="item.mainImg" ></image-preview></div>
+                    <div v-if="item.mainImg"><image-preview :imgUrl="item.mainImg"></image-preview></div>
                     <div v-if="item.conditions">
                         <div class="size16 title">条件：</div>
-                        <p class="textIndent" v-for="(condition, k) in item.conditions">{{condition}}</p>
+                        <p class="textIndent" v-for="(condition, k) in item.conditions">{{ condition }}</p>
                     </div>
-                    
+
                     <div v-if="item.example">
                         <div class="size16 title">例子：</div>
-                        <div class="margin50100 box1297e4" v-for="(img, k) in item.example"><image-preview :imgUrl="img" ></image-preview></div>
+                        <div class="margin50100 box1297e4" v-for="(img, k) in item.example"><image-preview :imgUrl="img"></image-preview></div>
                     </div>
-                    
+
                     <div v-if="item.remark">
                         <div class="size16 title">备注：</div>
                         <!-- <el-input
@@ -42,65 +42,83 @@
 </template>
 
 <script>
-    import imagePreview from '../image-preview.vue'
-    import gpExample from './example.vue'
-    export default {
-        components: { imagePreview, gpExample },
-        data() {    
-            return {
-                activeNames: ['0'],
-                // example 的图片高度尺寸 控制在300px以内，最好230左右
-                model: [
-                    {
-                        title: '亢龙有悔（大盘，日线）',
-                        smallImg: 'gupiao/亢龙有悔/logo.png',
-                        desc: '大盘模型',
-                        mainImg: 'gupiao/亢龙有悔/klyh.png',
-                        conditions: ['第一天的阴线尽量小', '第二天的阴线尽量大', '第三天的阳线要低开高收'],
-                        example: ['gupiao/亢龙有悔/example1.png'],
-                        remark: `
+import imagePreview from "../image-preview.vue";
+import gpExample from "./example.vue";
+export default {
+    components: { imagePreview, gpExample },
+    data() {
+        return {
+            activeNames: ["0"],
+            // example 的图片高度尺寸 控制在300px以内，最好230左右
+            model: [
+                {
+                    title: "亢龙有悔（大盘，日线）",
+                    smallImg: "gupiao/亢龙有悔/logo.png",
+                    desc: "大盘模型",
+                    mainImg: "gupiao/亢龙有悔/klyh.png",
+                    conditions: [
+                        "第一天的阴线尽量小",
+                        "第二天的阴线尽量大",
+                        "第三天的阳线要低开高收",
+                        "均线并列下行,或10、20向下、60向上，如果触碰10均线后根据阴阳线定涨跌，",
+                        "往往有阳线触碰后第二天阴线开启下跌，注意可当天势头不对就卖，",
+                        "如果买入当天没有碰到10均线(包括影线，高开的阴线)，可以等第二天观察，",
+                        "一般来说，触碰后也没有突破10均线，大概率涨不上去",
+                    ],
+                    example: ["gupiao/亢龙有悔/example1.png"],
+                    remark: `
                             <div>大阴线 实体 > 小阴线 实体 的 2倍以上</div>
                             <div>止盈： 5-10日内的大阳线收盘价；任意阴线</div>
                             <div>止损： 该模型的最低价</div>
                             <div>可以多在沪深300，上证50里找</div>
-                        `
-                    },
-                    {
-                        title: '半价次新股',
-                        desc: '次新股 下跌至一半的价格，或继续下跌至33%的价位',
-                        conditions: ['最开始的一字涨停板到第一波最高点后下跌，等待到50%的位置再观察是否还将继续下跌', '半价买入或者底部直接买入，盈利20%'],
-                         remark: `
+                        `,
+                },
+                {
+                    title: "半价次新股",
+                    desc: "次新股 下跌至一半的价格，或继续下跌至33%的价位",
+                    conditions: [
+                        "最开始的一字涨停板到第一波最高点后下跌，等待到50%的位置再观察是否还将继续下跌",
+                        "半价买入或者底部直接买入，盈利20%",
+                    ],
+                    remark: `
                             <div>注意分仓、交易计划</div>
                             <div>大盘趋势不好的时候，要注意使用</div>
-                        `
-                    },
-                    {
-                        title: '七星落长空 - I型（个股，日线）',
-                        smallImg: 'gupiao/七星/七星-1-img.png',
-                        desc: '下跌趋势中的底部模型',
-                        mainImg: 'gupiao/七星/七星-1.png',
-                        conditions: ['1. 阴阳线的真、假都可以(*①)', '2. 阴阳线的大、小都行', '3. 阴阳线的高低开都可以', '4. 下跌趋势中，基本都在底部'],
-                        example: ['gupiao/七星/example1-1.png', 'gupiao/七星/example12-1.png'],
-                        remark: `<a href="https://live.study.163.com/live/index.html?courseId=100080957&lesson=103776758&type=1">1. 第一阶段 -> 短线抄底模型 -> 2、3课 </a>
+                        `,
+                },
+                {
+                    title: "七星落长空 - I型（个股，日线）",
+                    smallImg: "gupiao/七星1/logo.png",
+                    desc: "下跌趋势中的底部模型",
+                    mainImg: "gupiao/七星1/qx1.png",
+                    conditions: ["1. 阴阳线的真、假都可以(*①)", "2. 阴阳线的大、小都行", "3. 阴阳线的高低开都可以", "4. 下跌趋势中，基本都在底部"],
+                    example: ["gupiao/七星1/example1-1.png", "gupiao/七星1/example12-1.png"],
+                    remark: `<a href="https://live.study.163.com/live/index.html?courseId=100080957&lesson=103776758&type=1">1. 第一阶段 -> 短线抄底模型 -> 2、3课 </a>
                             <div>2. 无论 I型 还是 II型，都是短线抄底模型，见好就收，不要拿着不放</div>
-                        `
-                    },
-                    {
-                        title: '七星落长空 - II型（个股，日线）',
-                        smallImg: 'gupiao/七星/七星-2-img.png',
-                        desc: '下跌趋势中的底部模型',
-                        mainImg: 'gupiao/七星/七星-2.png',
-                        example: ['gupiao/七星/example12-1.png', 'gupiao/七星/example2-1.png', 'gupiao/七星/example2-2.png'],
-                        conditions: ['阴阳线的真、假都可以', '阴阳线的大、小都行', '阴阳线的高低开都可以', '4. 下跌趋势中，基本都在底部'],
-                        remark: '无论 I型 还是 II型，都是短线抄底模型，见好就收，不要拿着不放'
-                    },
-                    {
-                        title: '看跌做涨（个股，周线）',
-                        smallImg: 'gupiao/价格中枢/logo.png',
-                        desc: '下跌后的筑底',
-                        mainImg: 'gupiao/价格中枢/jgzs.png',
-                        example: ['gupiao/价格中枢/example1.png', 'gupiao/价格中枢/example2.png', 'gupiao/价格中枢/example3.png', 'gupiao/价格中枢/example4.png', 'gupiao/价格中枢/example5.png', 'gupiao/价格中枢/example6.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "七星落长空 - II型（个股，日线）",
+                    smallImg: "gupiao/七星2/logo.png",
+                    desc: "下跌趋势中的底部模型",
+                    mainImg: "gupiao/七星2/qx2.png",
+                    example: ["gupiao/七星2/example12-1.png", "gupiao/七星2/example2-1.png", "gupiao/七星2/example2-2.png"],
+                    conditions: ["阴阳线的真、假都可以", "阴阳线的大、小都行", "阴阳线的高低开都可以", "4. 下跌趋势中，基本都在底部"],
+                    remark: "无论 I型 还是 II型，都是短线抄底模型，见好就收，不要拿着不放",
+                },
+                {
+                    title: "看跌做涨（个股，周线）",
+                    smallImg: "gupiao/价格中枢/logo.png",
+                    desc: "下跌后的筑底",
+                    mainImg: "gupiao/价格中枢/jgzs.png",
+                    example: [
+                        "gupiao/价格中枢/example1.png",
+                        "gupiao/价格中枢/example2.png",
+                        "gupiao/价格中枢/example3.png",
+                        "gupiao/价格中枢/example4.png",
+                        "gupiao/价格中枢/example5.png",
+                        "gupiao/价格中枢/example6.png",
+                    ],
+                    remark: `
                             低开：既可是阴线， 也可以是阳线
                             <div>如果低开后实体很大就不是</div>
                             新条件：
@@ -108,491 +126,573 @@
                             <div>不能高开高走</div>
                             <div>第二周最好别涨上来，希望弱势些</div>
                             <div>第三周最好都是先跌后涨的(周一到周三跌，到周五涨)</div>
-                        `
-                    },
-                    {
-                        title: '看涨做涨（个股，周线）',
-                        smallImg: 'gupiao/价格中枢/logo2.png',
-                        desc: '上涨初期或中期',
-                        mainImg: 'gupiao/价格中枢/jgzs2.png',
-                        example: ['gupiao/价格中枢/example2-1.png', 'gupiao/价格中枢/example2-2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "看涨做涨（个股，周线）",
+                    smallImg: "gupiao/价格中枢/logo2.png",
+                    desc: "上涨初期或中期",
+                    mainImg: "gupiao/价格中枢/jgzs2.png",
+                    example: ["gupiao/价格中枢/example2-1.png", "gupiao/价格中枢/example2-2.png"],
+                    remark: `
                             <div>第二周高开后，确认是上涨状态，周三就可以买入</div>
-                        `
-                    },
-                    {
-                        title: '看涨阴线1（个股，周线）',
-                        smallImg: 'gupiao/价格中枢/看涨阴线/logo1.png',
-                        desc: '上涨途中的回调',
-                        mainImg: 'gupiao/价格中枢/看涨阴线/kzyx1.png',
-                        example: ['gupiao/价格中枢/看涨阴线/example1-1.png', 'gupiao/价格中枢/看涨阴线/example1-2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "看涨阴线1（个股，周线）",
+                    smallImg: "gupiao/价格中枢/看涨阴线/logo1.png",
+                    desc: "上涨途中的回调",
+                    mainImg: "gupiao/价格中枢/看涨阴线/kzyx1.png",
+                    example: ["gupiao/价格中枢/看涨阴线/example1-1.png", "gupiao/价格中枢/看涨阴线/example1-2.png"],
+                    remark: `
                         <div>止损：近期最低价</div>
                         <div>第二周阳线的低开，相对于价格中枢来说</div>
                         <div>周中或下周买入</div>
-                        `
-                    },
-                    {
-                        title: '看涨阴线2（个股，周线）',
-                        smallImg: 'gupiao/价格中枢/看涨阴线/logo2.png',
-                        desc: '上涨途中的回调',
-                        mainImg: 'gupiao/价格中枢/看涨阴线/kzyx2.png',
-                        example: ['gupiao/价格中枢/看涨阴线/example2-1.png', 'gupiao/价格中枢/看涨阴线/example2-2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "看涨阴线2（个股，周线）",
+                    smallImg: "gupiao/价格中枢/看涨阴线/logo2.png",
+                    desc: "上涨途中的回调",
+                    mainImg: "gupiao/价格中枢/看涨阴线/kzyx2.png",
+                    example: ["gupiao/价格中枢/看涨阴线/example2-1.png", "gupiao/价格中枢/看涨阴线/example2-2.png"],
+                    remark: `
                         <div>止损：近期最低价</div>
                         <div>第二周无论高开、低开。放量、缩量 都可以</div>
                         <div>大阴线的影线： 上必需要但不能太长， 下最好没有或极短</div>
                         <div>周中或下周买入</div>
-                        `
-                    },
-                    {
-                        title: '看跌阴线3（个股，周线）',
-                        smallImg: 'gupiao/价格中枢/看跌阴线/logo3.png',
-                        desc: '上涨的末期',
-                        mainImg: 'gupiao/价格中枢/看跌阴线/kdyx3.png',
-                        example: ['gupiao/价格中枢/看跌阴线/example3-1.png', 'gupiao/价格中枢/看跌阴线/example3-2.png', 'gupiao/价格中枢/看跌阴线/example3-3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "看跌阴线3（个股，周线）",
+                    smallImg: "gupiao/价格中枢/看跌阴线/logo3.png",
+                    desc: "上涨的末期",
+                    mainImg: "gupiao/价格中枢/看跌阴线/kdyx3.png",
+                    example: [
+                        "gupiao/价格中枢/看跌阴线/example3-1.png",
+                        "gupiao/价格中枢/看跌阴线/example3-2.png",
+                        "gupiao/价格中枢/看跌阴线/example3-3.png",
+                    ],
+                    remark: `
                             <div>止盈： 50%+ </div>
                             <div>止损： 近期最低价 </div>
                             <div>光头不光脚(可以有一点点上影线，最好没有)</div>
                             <div>不能是锤头</div>
                             <div>不一定是最高，但一定是在高位出现的</div>
                             <div>第二周 阴线、阳线无所谓。出现即卖</div>
-                        `
-                    },
-                    {
-                        title: '看跌阴线4（个股，周线）',
-                        smallImg: 'gupiao/价格中枢/看跌阴线/logo4.png',
-                        desc: '下跌后的筑底',
-                        mainImg: 'gupiao/价格中枢/看跌阴线/kdyx4.png',
-                        example: ['gupiao/价格中枢/看跌阴线/example4-1.png', 'gupiao/价格中枢/看跌阴线/example4-2.png', 'gupiao/价格中枢/看跌阴线/example4-3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "看跌阴线4（个股，周线）",
+                    smallImg: "gupiao/价格中枢/看跌阴线/logo4.png",
+                    desc: "下跌后的筑底",
+                    mainImg: "gupiao/价格中枢/看跌阴线/kdyx4.png",
+                    example: [
+                        "gupiao/价格中枢/看跌阴线/example4-1.png",
+                        "gupiao/价格中枢/看跌阴线/example4-2.png",
+                        "gupiao/价格中枢/看跌阴线/example4-3.png",
+                    ],
+                    remark: `
                             <div>止盈： 50%+ </div>
                             <div>止损： 近期最低价 </div>
                             <div>光头不光脚(可以有一点点上影线，最好没有)</div>
                             <div>第二周 只能阳线</div>
                             <div>周中买入（即确定后，周三、周四买入）</div>
-                        `
-                    },
-                    {
-                        title: '上涨诱空大阴线抄底（个股，日线）',
-                        smallImg: 'gupiao/诱空抄底/logo.png',
-                        desc: '上涨途中的追涨抢跑',
-                        mainImg: 'gupiao/诱空抄底/szjgcddwykdyx.png',
-                        example: ['gupiao/诱空抄底/example.png', 'gupiao/诱空抄底/example2.png', 'gupiao/诱空抄底/example3.png', 'gupiao/诱空抄底/example4.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "上涨诱空大阴线抄底（个股，日线）",
+                    smallImg: "gupiao/诱空抄底/logo.png",
+                    desc: "上涨途中的追涨抢跑",
+                    mainImg: "gupiao/诱空抄底/szjgcddwykdyx.png",
+                    example: [
+                        "gupiao/诱空抄底/example.png",
+                        "gupiao/诱空抄底/example2.png",
+                        "gupiao/诱空抄底/example3.png",
+                        "gupiao/诱空抄底/example4.png",
+                    ],
+                    remark: `
                             <div>大阴线吃掉的涨幅，可以是阳线也可以有阴线</div>
                             <div>不是低位也可以，只要在上涨趋势中即可</div>
                             <div style="color:#ff891b">主力操盘，成交量可以做假。但是只能放量做假</div>
-                        `
-                    },
-                    {
-                        title: '否极泰来',
-                        smallImg: 'gupiao/否极泰来/logo.png',
-                        desc: '真正的底部模型',
-                        mainImg: 'gupiao/否极泰来/pjtl.png',
-                        example: ['gupiao/否极泰来/example1.png', 'gupiao/否极泰来/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "否极泰来",
+                    smallImg: "gupiao/否极泰来/logo.png",
+                    desc: "真正的底部模型",
+                    mainImg: "gupiao/否极泰来/pjtl.png",
+                    example: ["gupiao/否极泰来/example1.png", "gupiao/否极泰来/example2.png"],
+                    remark: `
                             <div>A、C 也可以是阳线，只要 C 比 A 低</div>
                             <div>B也可以是波动很大的横盘</div>
                             <div>D只要是阳线，也可以是十字星</div>
-                        `
-                    },
-                    {
-                        title: '飞龙在天',
-                        smallImg: 'gupiao/飞龙在天/logo.png',
-                        desc: '大盘好的时候用，超短期追涨停，80%胜率',
-                        mainImg: 'gupiao/飞龙在天/flzt.png',
-                        // example: ['gupiao/飞龙在天/example1.png', 'gupiao/飞龙在天/example2.png'],
-                        remark: ``
-                    },
-                    {
-                        title: '神龙摆尾-zero（个股，日线）',
-                        smallImg: 'gupiao/神龙摆尾0/logo.png',
-                        conditions: [
-                            '买点后3-5日，快速均线拐头向上，增加成功率'
-                        ],
-                        desc: '急速下跌/熊市末期',
-                        mainImg: 'gupiao/神龙摆尾0/slbw0.png',
-                        example: ['gupiao/神龙摆尾0/example1.png', 'gupiao/神龙摆尾0/example2.png', 'gupiao/神龙摆尾0/example3.png'],
-                        remark: `
-                        `
-                    },
-                    {
-                        title: '神龙摆尾1（个股，日线）',
-                        smallImg: 'gupiao/神龙摆尾1/logo.png',
-                        desc: '筑底后震荡的第一个涨停板',
-                        mainImg: 'gupiao/神龙摆尾1/slbw1.png',
-                        example: ['gupiao/神龙摆尾1/example1.png', 'gupiao/神龙摆尾1/example2.png', 'gupiao/神龙摆尾1/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "飞龙在天",
+                    smallImg: "gupiao/飞龙在天/logo.png",
+                    desc: "大盘好的时候用，超短期追涨停，80%胜率",
+                    mainImg: "gupiao/飞龙在天/flzt.png",
+                    // example: ['gupiao/飞龙在天/example1.png', 'gupiao/飞龙在天/example2.png'],
+                    remark: ``,
+                },
+                {
+                    title: "神龙摆尾-zero（个股，日线）",
+                    smallImg: "gupiao/神龙摆尾0/logo.png",
+                    conditions: ["买点后3-5日，快速均线拐头向上，增加成功率"],
+                    desc: "急速下跌/熊市末期",
+                    mainImg: "gupiao/神龙摆尾0/slbw0.png",
+                    example: ["gupiao/神龙摆尾0/example1.png", "gupiao/神龙摆尾0/example2.png", "gupiao/神龙摆尾0/example3.png"],
+                    remark: `
+                        `,
+                },
+                {
+                    title: "神龙摆尾1（个股，日线）",
+                    smallImg: "gupiao/神龙摆尾1/logo.png",
+                    desc: "筑底后震荡的第一个涨停板",
+                    mainImg: "gupiao/神龙摆尾1/slbw1.png",
+                    example: ["gupiao/神龙摆尾1/example1.png", "gupiao/神龙摆尾1/example2.png", "gupiao/神龙摆尾1/example2.png"],
+                    remark: `
                             <div>盈利30% - 50%</div>
                             <div>下影线可以扎破箱体，但实体一定不能</div>
                             <div>V字型横盘也可以，但是不好</div>
                             <div>止盈的50%是从第一个涨停板的收盘价开始算，而不是买入的开盘价</div>
-                        `
-                    },
-                    {
-                        title: '神龙摆尾2（个股，日线）',
-                        smallImg: 'gupiao/神龙摆尾2/logo.png',
-                        desc: '筑底后震荡的第一个涨停板',
-                        mainImg: 'gupiao/神龙摆尾2/slbw2.png',
-                        example: ['gupiao/神龙摆尾2/example1.png', 'gupiao/神龙摆尾2/example2.png', 'gupiao/神龙摆尾2/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "神龙摆尾2（个股，日线）",
+                    smallImg: "gupiao/神龙摆尾2/logo.png",
+                    desc: "筑底后震荡的第一个涨停板",
+                    mainImg: "gupiao/神龙摆尾2/slbw2.png",
+                    example: ["gupiao/神龙摆尾2/example1.png", "gupiao/神龙摆尾2/example2.png", "gupiao/神龙摆尾2/example2.png"],
+                    remark: `
                             <div>盈利30% - 50%</div>
                             <div>k线的收盘价不能跌破涨停板的收盘价</div>
                             <div>下影线可以刺穿</div>
                             <div>如果是阴线，则任意位置(实体、影线)都不能跌破箱体</div>
                             <div>成交量依次降低也可以，最好还是5和10的死叉</div>
-                        `
-                    },
-                    {
-                        title: '神龙摆尾3（个股，日线）',
-                        smallImg: 'gupiao/神龙摆尾3/logo.png',
-                        desc: '筑底后震荡的第一个涨停板',
-                        mainImg: 'gupiao/神龙摆尾3/slbw.png',
-                        example: ['gupiao/神龙摆尾3/example1.png', 'gupiao/神龙摆尾3/example2.png', 'gupiao/神龙摆尾3/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "神龙摆尾3（个股，日线）",
+                    smallImg: "gupiao/神龙摆尾3/logo.png",
+                    desc: "筑底后震荡的第一个涨停板",
+                    mainImg: "gupiao/神龙摆尾3/slbw.png",
+                    example: ["gupiao/神龙摆尾3/example1.png", "gupiao/神龙摆尾3/example2.png", "gupiao/神龙摆尾3/example3.png"],
+                    remark: `
                             <div>振幅差不多5%即可</div>
                             <div>最好出现在上涨初期</div>
                             <div>卖点自己把握</div>
                             <div>和神1区别就是不需要一个长周期的横盘后的涨停板</div>
-                        `
-                    },
-                    {
-                        title: '神龙摆尾4（个股，日线）',
-                        smallImg: 'gupiao/神龙摆尾4/logo.png',
-                        desc: '（21/07/24 - 2:18）',
-                        mainImg: 'gupiao/神龙摆尾4/slbw4.png',
-                        example: ['gupiao/神龙摆尾4/example1.png', 'gupiao/神龙摆尾4/example2.png'],
-                        remark: ``
-                    },
-                    {
-                        title: '反客为主（个股，日线）',
-                        smallImg: 'gupiao/反客为主/logo.png',
-                        desc: '上涨结构(*②)中的某个位置',
-                        mainImg: 'gupiao/反客为主/fkww.png',
-                        example: ['gupiao/反客为主/example1.png']
-                    },
-                    {
-                        title: '峰回路转（个股，日线）',
-                        smallImg: 'gupiao/峰回路转/logo.png',
-                        desc: '上涨结构的主力洗盘',
-                        mainImg: 'gupiao/峰回路转/fhlz.png',
-                        example: ['gupiao/峰回路转/example1.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "神龙摆尾4（个股，日线）",
+                    smallImg: "gupiao/神龙摆尾4/logo.png",
+                    desc: "（21/07/24 - 2:18）",
+                    mainImg: "gupiao/神龙摆尾4/slbw4.png",
+                    example: ["gupiao/神龙摆尾4/example1.png", "gupiao/神龙摆尾4/example2.png"],
+                    remark: ``,
+                },
+                {
+                    title: "反客为主（个股，日线）",
+                    smallImg: "gupiao/反客为主/logo.png",
+                    desc: "上涨结构(*②)中的某个位置",
+                    mainImg: "gupiao/反客为主/fkww.png",
+                    example: ["gupiao/反客为主/example1.png"],
+                },
+                {
+                    title: "峰回路转（个股，日线）",
+                    smallImg: "gupiao/峰回路转/logo.png",
+                    desc: "上涨结构的主力洗盘",
+                    conditions: [
+                        "模型中2根实体不要比最近的大",
+                        "模型开始站在10上或离10不远",
+                        "远离10后回调到10附近可继续等待, 看跌看涨主要看下穿10的k线，参考强弱突破",
+                        "模型第一根k线与前一个比较，要么跳空不回补(包括影线)，要么没缺口",
+                        "2周内",
+                    ],
+                    mainImg: "gupiao/峰回路转/fhlz.png",
+                    example: ["gupiao/峰回路转/example1.png"],
+                    remark: `
                             <div>是在上涨结构中，而不是在上涨趋势中</div>
-                        `
-                    },
-                    {
-                        title: '以逸待劳（个股，日线）',
-                        smallImg: 'gupiao/以逸待劳/logo.png',
-                        desc: '底部的主力洗盘',
-                        mainImg: 'gupiao/以逸待劳/yydl.png',
-                        example: ['gupiao/以逸待劳/example1.png', 'gupiao/以逸待劳/example2.png', 'gupiao/以逸待劳/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "以逸待劳（个股，日线）",
+                    smallImg: "gupiao/以逸待劳/logo.png",
+                    desc: "底部的主力洗盘",
+                    mainImg: "gupiao/以逸待劳/yydl.png",
+                    example: ["gupiao/以逸待劳/example1.png", "gupiao/以逸待劳/example2.png", "gupiao/以逸待劳/example3.png"],
+                    remark: `
                             <div>一定是下跌之后的上涨中</div>
                             <div>第五日的只要是阳线就行。不管高开低开、放量缩量、真假都无所谓</div>
                             <div>等待一个爆发，没有可继续等待</div>
-                        `
-                    },
-                    {
-                        title: '出水芙蓉（个股，日线）',
-                        smallImg: 'gupiao/出水芙蓉/logo.png',
-                        desc: '主力低位洗盘模型，大盘比较弱的时候用',
-                        mainImg: 'gupiao/出水芙蓉/csfr.png',
-                        example: ['gupiao/出水芙蓉/example1.png', 'gupiao/出水芙蓉/example2.png', 'gupiao/出水芙蓉/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "出水芙蓉（个股，日线）",
+                    smallImg: "gupiao/出水芙蓉/logo.png",
+                    desc: "主力低位洗盘模型，大盘比较弱的时候用",
+                    mainImg: "gupiao/出水芙蓉/csfr.png",
+                    example: ["gupiao/出水芙蓉/example1.png", "gupiao/出水芙蓉/example2.png", "gupiao/出水芙蓉/example3.png"],
+                    remark: `
                             <div>最好不要十字星</div>
-                        `
-                    },
-                    {
-                        title: '一箭双雕（个股，日线）',
-                        smallImg: 'gupiao/一箭双雕/logo.png',
-                        desc: '中继加速模型，主力拉升前的洗盘',
-                        mainImg: 'gupiao/一箭双雕/yjsd.png',
-                        example: ['gupiao/一箭双雕/example1.png', 'gupiao/一箭双雕/example2.png', 'gupiao/一箭双雕/example3.png', 'gupiao/一箭双雕/example4.png', 'gupiao/一箭双雕/example5.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "一箭双雕（个股，日线）",
+                    smallImg: "gupiao/一箭双雕/logo.png",
+                    desc: "中继加速模型，主力拉升前的洗盘",
+                    mainImg: "gupiao/一箭双雕/yjsd.png",
+                    example: [
+                        "gupiao/一箭双雕/example1.png",
+                        "gupiao/一箭双雕/example2.png",
+                        "gupiao/一箭双雕/example3.png",
+                        "gupiao/一箭双雕/example4.png",
+                        "gupiao/一箭双雕/example5.png",
+                    ],
+                    remark: `
                             <div>缓慢上涨 到 急速拉升 的过渡点</div>
                             <div>机会较少，盈利也会很多的。止盈自己把握，也可以使用推高止损的方式扩大盈利</div>
                             <div>两个阴线最好是高开的(加分项，不是必需的)</div>
                             <div>案例中的第一根阳线，可以不是很大</div>
-                        `
-                    },
-                    {
-                        title: '柳暗花明（个股，日线）',
-                        smallImg: 'gupiao/柳暗花明/logo.png',
-                        desc: '底部反转模型，主力底部的强势洗盘',
-                        mainImg: 'gupiao/柳暗花明/lahm.png',
-                        // example: ['gupiao/柳暗花明/example1.png', 'gupiao/柳暗花明/example2.png', 'gupiao/柳暗花明/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "柳暗花明（个股，日线）",
+                    smallImg: "gupiao/柳暗花明/logo.png",
+                    desc: "底部反转模型，主力底部的强势洗盘",
+                    mainImg: "gupiao/柳暗花明/lahm.png",
+                    // example: ['gupiao/柳暗花明/example1.png', 'gupiao/柳暗花明/example2.png', 'gupiao/柳暗花明/example3.png'],
+                    remark: `
                             <div>出现以后，必然是底</div>
-                        `
-                    },
-                    {
-                        title: '葛式八法 - 买2（个股，周日线）',
-                        smallImg: 'gupiao/葛式八法/logo2.png',
-                        
-                        mainImg: 'gupiao/葛式八法/买2.png',
-                        example: ['gupiao/葛式八法/example2-1.png', 'gupiao/葛式八法/example2-2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "葛式八法 - 买2（个股，周日线）",
+                    smallImg: "gupiao/葛式八法/logo2.png",
+
+                    mainImg: "gupiao/葛式八法/买2.png",
+                    example: ["gupiao/葛式八法/example2-1.png", "gupiao/葛式八法/example2-2.png"],
+                    remark: `
                             <div></div>
-                        `
-                    },
-                    {
-                        title: '神奇均线（个股，日线）',
-                        smallImg: 'gupiao/神奇均线/logo.png',
-                        desc: '下跌横盘后， 上涨初期',
-                        conditions: ['回调的幅度(举例跳起来之前的下蹲，不能太低不能太高)', '有效突破/有效支撑(举例箱体的上下沿)'],
-                        mainImg: 'gupiao/神奇均线/sqjx.png',
-                        example: ['gupiao/神奇均线/example1.png', 'gupiao/神奇均线/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "神奇均线（个股，日线）",
+                    smallImg: "gupiao/神奇均线/logo.png",
+                    desc: "下跌横盘后， 上涨初期",
+                    conditions: ["回调的幅度(举例跳起来之前的下蹲，不能太低不能太高)", "有效突破/有效支撑(举例箱体的上下沿)"],
+                    mainImg: "gupiao/神奇均线/sqjx.png",
+                    example: ["gupiao/神奇均线/example1.png", "gupiao/神奇均线/example2.png"],
+                    remark: `
                             <div><span style="color: #F4882F">快：5；</span><span style="color: #0096EF">中：13；</span><span style="color: #000">慢：34</span></div>
                             <div style="font-size: 20px">A：</div>
                             <div>k线允许跌破慢速均线</div>
                             <div style="font-size: 20px">B：</div>
                             <div>慢速均线、中速均线下穿快速均线后，无论谁上谁下</div>
                             <div>止损： 1. 快速、中速 死叉；2. 慢速均线向下</div>
-                        `
-                        
-                    },
-                    {
-                        title: '神奇数字（个股，月>周>日）',
-                        smallImg: 'gupiao/神奇数字/logo.png',
-                        desc: '（21/07/31 - 2:20）',
-                        mainImg: 'gupiao/神奇数字/sqsz.png',
-                        example: ['gupiao/神奇数字/example1.png', 'gupiao/神奇数字/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "神奇数字（个股，月>周>日）",
+                    smallImg: "gupiao/神奇数字/logo.png",
+                    desc: "（21/07/31 - 2:20）",
+                    mainImg: "gupiao/神奇数字/sqsz.png",
+                    example: ["gupiao/神奇数字/example1.png", "gupiao/神奇数字/example2.png"],
+                    remark: `
                             <div>买入后短期内即可达到目标</div>
-                        `
-                        
-                    },
-                    {
-                        title: '神奇数字2（个股，月>周>日）',
-                        smallImg: 'gupiao/神奇数字2/logo.png',
-                        desc: '（21/07/31 - 2:20）',
-                        mainImg: 'gupiao/神奇数字2/sqsz.png',
-                        example: ['gupiao/神奇数字2/example1.png', 'gupiao/神奇数字2/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "神奇数字2（个股，月>周>日）",
+                    smallImg: "gupiao/神奇数字2/logo.png",
+                    desc: "（21/07/31 - 2:20）",
+                    mainImg: "gupiao/神奇数字2/sqsz.png",
+                    example: ["gupiao/神奇数字2/example1.png", "gupiao/神奇数字2/example2.png"],
+                    remark: `
                             <div>不需要顶顶抬高，但第一个高点是之前的冲高，后面的高点都没有达到前高</div>
                             <div>四个确定高点，7跟k线以内有效突破后下月买入，没有也可以第8根买入</div>
                             <div>第一个高点回落后产生的低点，但第4个高点后的7根k线都不能低于该点</div>
-                        `
-                        
-                    },
-                    {
-                        title: '鱼跃龙门（个股，月线）',
-                        smallImg: 'gupiao/鱼跃龙门/logo.png',
-                        // desc: '',
-                        mainImg: 'gupiao/鱼跃龙门/yylm.png',
-                        example: ['gupiao/鱼跃龙门/example1.png', 'gupiao/鱼跃龙门/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "鱼跃龙门（个股，月线）",
+                    smallImg: "gupiao/鱼跃龙门/logo.png",
+                    // desc: '',
+                    mainImg: "gupiao/鱼跃龙门/yylm.png",
+                    example: ["gupiao/鱼跃龙门/example1.png", "gupiao/鱼跃龙门/example2.png"],
+                    remark: `
                             <div>时间不确定，有可能3月，更多是半年-1年左右</div>
                             <div>不设止损</div>
                             <div>从下跌到翻倍, 4年以上， 下跌2年，筑底2-3年</div>
                             <div>筑底时间要长</div>
                             <div>底部可是,单底\多底\圆弧底, 最好还有上升三角形(反转形态)</div>
-                        `
-                        
-                    },
-                    {
-                        title: '隔山打牛（个股，日线）',
-                        smallImg: 'gupiao/隔山打牛/logo.png',
-                        desc: '上涨初期或中期',
-                        mainImg: 'gupiao/隔山打牛/gsdn.png',
-                        example: ['gupiao/隔山打牛/example1.png', 'gupiao/隔山打牛/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "隔山打牛（个股，日线）",
+                    smallImg: "gupiao/隔山打牛/logo.png",
+                    desc: "上涨初期或中期",
+                    mainImg: "gupiao/隔山打牛/gsdn.png",
+                    example: ["gupiao/隔山打牛/example1.png", "gupiao/隔山打牛/example2.png"],
+                    remark: `
                             <div>盈利 10%-30%.一月内</div>
                             <div>成交量不必依次降低</div>
-                        `
-                        
-                    },
-                    {
-                        title: '大有（个股，日线）',
-                        smallImg: 'gupiao/大有/logo.png',
-                        conditions: [
-                            '慢速均线向上或趋平',
-                            '金叉后不久'
-                        ],
-                        desc: '上涨初期的洗盘模型（21/07/10 - 2:30）',
-                        mainImg: 'gupiao/大有/dy.png',
-                        example: ['gupiao/大有/example1.png', 'gupiao/大有/example2.png', 'gupiao/大有/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "大有（个股，日线）",
+                    smallImg: "gupiao/大有/logo.png",
+                    conditions: ["慢速均线向上或趋平", "金叉后不久"],
+                    desc: "上涨初期的洗盘模型（21/07/10 - 2:30）",
+                    mainImg: "gupiao/大有/dy.png",
+                    example: ["gupiao/大有/example1.png", "gupiao/大有/example2.png", "gupiao/大有/example3.png"],
+                    remark: `
                             <div>盈利 10%-20%.俩月内</div>
                             <div>4连阳就是4个，3个不行，5个也不行</div>
                             <div>4连阳实体应该都不大</div>
                             <div>最后的阳线最好不大，也可以是涨停板</div>
                             <div>期望是买入后才涨，不应该是涨过了才买</div>
-                        `
-                        
-                    },
-                    {
-                        title: '一触即发(个股， 日线)',
-                        smallImg: 'gupiao/窓璧轴/一触即发/logo.png',
-                        desc: '窓璧轴理论（21/07/17 - 1:30）',
-                        mainImg: 'gupiao/窓璧轴/一触即发/ycjf.png',
-                        example: ['gupiao/窓璧轴/一触即发/example1.png', 'gupiao/窓璧轴/一触即发/example2.png', 'gupiao/窓璧轴/一触即发/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "一触即发(个股， 日线)",
+                    smallImg: "gupiao/窓璧轴/一触即发/logo.png",
+                    desc: "窓璧轴理论（21/07/17 - 1:30）",
+                    mainImg: "gupiao/窓璧轴/一触即发/ycjf.png",
+                    example: ["gupiao/窓璧轴/一触即发/example1.png", "gupiao/窓璧轴/一触即发/example2.png", "gupiao/窓璧轴/一触即发/example3.png"],
+                    remark: `
                             <div>运行一周以上，>5天才有效</div>
                             <div>上涨/下跌，应该能创新高/新低</div>
                             <div>连续的涨停板没有参考价值</div>
-                        `
-                        
-                    },
-                    {
-                        title: '一举中第(个股， 日线)',
-                        smallImg: 'gupiao/窓璧轴/一举中第/logo.png',
-                        desc: '窓璧轴理论',
-                        mainImg: 'gupiao/窓璧轴/一举中第/yjzd.png',
-                        example: ['gupiao/窓璧轴/一举中第/example1.png', 'gupiao/窓璧轴/一举中第/example2.png', 'gupiao/窓璧轴/一举中第/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "一举中第(个股， 日线)",
+                    smallImg: "gupiao/窓璧轴/一举中第/logo.png",
+                    desc: "窓璧轴理论",
+                    mainImg: "gupiao/窓璧轴/一举中第/yjzd.png",
+                    example: ["gupiao/窓璧轴/一举中第/example1.png", "gupiao/窓璧轴/一举中第/example2.png", "gupiao/窓璧轴/一举中第/example3.png"],
+                    remark: `
                             <div>运行一周以上，最好>5天</div>
                             <div>影线填补、实体填补都可以</div>
                             <div>第二次填补要小于之前缺口的1/2，也就是小部分</div>
-                        `
-                        
-                    },
-                    {
-                        title: '一线生机(个股， 日线)',
-                        smallImg: 'gupiao/窓璧轴/一线生机/logo.png',
-                        desc: '窓璧轴理论',
-                        mainImg: 'gupiao/窓璧轴/一线生机/yxsj.png',
-                        example: ['gupiao/窓璧轴/一线生机/example1.png', 'gupiao/窓璧轴/一线生机/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "一线生机(个股， 日线)",
+                    smallImg: "gupiao/窓璧轴/一线生机/logo.png",
+                    desc: "窓璧轴理论",
+                    mainImg: "gupiao/窓璧轴/一线生机/yxsj.png",
+                    example: ["gupiao/窓璧轴/一线生机/example1.png", "gupiao/窓璧轴/一线生机/example2.png"],
+                    remark: `
                             <div>等待确定的阳线： 中阳线、大阳线</div>
-                        `
-                        
-                    },
-                    {
-                        title: '一反常态(个股， 日线)',
-                        smallImg: 'gupiao/窓璧轴/一反常态/logo.png',
-                        desc: '窓璧轴理论',
-                        mainImg: 'gupiao/窓璧轴/一反常态/yfct.png',
-                        example: ['gupiao/窓璧轴/一反常态/example1.png', 'gupiao/窓璧轴/一反常态/example2.png', 'gupiao/窓璧轴/一反常态/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "一反常态(个股， 日线)",
+                    smallImg: "gupiao/窓璧轴/一反常态/logo.png",
+                    desc: "窓璧轴理论",
+                    mainImg: "gupiao/窓璧轴/一反常态/yfct.png",
+                    example: ["gupiao/窓璧轴/一反常态/example1.png", "gupiao/窓璧轴/一反常态/example2.png", "gupiao/窓璧轴/一反常态/example3.png"],
+                    remark: `
                             <div>实体完全填补，无论阴线、阳线</div>
                             <div></div>
                             <div>说明主力控盘力度极强</div>
-                        `
-                        
-                    },
-                    {
-                        title: '有效突破(个股， 日线)',
-                        smallImg: 'gupiao/有效突破/logo.png',
-                        desc: '熊市末期 价格筑底后 (缺口理论应用)',
-                        mainImg: 'gupiao/有效突破/yxtp.png',
-                        example: ['gupiao/有效突破/example1.png', 'gupiao/有效突破/example2.png', 'gupiao/有效突破/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "有效突破(个股， 日线)",
+                    smallImg: "gupiao/有效突破/logo.png",
+                    desc: "熊市末期 价格筑底后 (缺口理论应用)",
+                    mainImg: "gupiao/有效突破/yxtp.png",
+                    example: ["gupiao/有效突破/example1.png", "gupiao/有效突破/example2.png", "gupiao/有效突破/example3.png"],
+                    remark: `
                             <div>缺口 ‘不被填补’</div>
                             <div>一周内，时间应不太长</div>
                             <div>阳线实体必须高过近期所有实体</div>
-                        `
-                    },
-                    {
-                        title: '蜻蜓点水(个股， 日线)',
-                        smallImg: 'gupiao/蜻蜓点水/logo.png',
-                        desc: '价格筑底 上涨初期 (缺口理论应用)',
-                        mainImg: 'gupiao/蜻蜓点水/qtds.png',
-                        example: ['gupiao/蜻蜓点水/example1.png', 'gupiao/蜻蜓点水/example2.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "蜻蜓点水(个股， 日线)",
+                    smallImg: "gupiao/蜻蜓点水/logo.png",
+                    desc: "价格筑底 上涨初期 (缺口理论应用)",
+                    mainImg: "gupiao/蜻蜓点水/qtds.png",
+                    example: ["gupiao/蜻蜓点水/example1.png", "gupiao/蜻蜓点水/example2.png"],
+                    remark: `
                             <div>缺口被填补无论阴阳线或影线</div>
-                        `
-                    },
-                    {
-                        title: '结界均线(个股， 日线)',
-                        smallImg: 'gupiao/结界均线/logo.png',
-                        desc: '75日 均线（21/07/17 - 2:53）',
-                        mainImg: 'gupiao/结界均线/jx.png',
-                        example: ['gupiao/结界均线/example1.png', 'gupiao/结界均线/example2.png', 'gupiao/结界均线/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "结界均线(个股， 日线)",
+                    smallImg: "gupiao/结界均线/logo.png",
+                    desc: "75日 均线（21/07/17 - 2:53）",
+                    mainImg: "gupiao/结界均线/jx.png",
+                    example: ["gupiao/结界均线/example1.png", "gupiao/结界均线/example2.png", "gupiao/结界均线/example3.png"],
+                    remark: `
                             <div>实体不能跌破均线</div>
                             <div>必须要有下影线（影线可以不破均线）</div>
-                        `
-                    },
-                    {
-                        title: '龙战于野(个股， 日线)',
-                        smallImg: 'gupiao/龙战于野/logo.png',
-                        desc: '低位涨停（21/07/17 - 3:20）',
-                        mainImg: 'gupiao/龙战于野/lzyy.png',
-                        example: ['gupiao/龙战于野/example1.png', 'gupiao/龙战于野/example2.png', 'gupiao/龙战于野/example3.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "龙战于野(个股， 日线)",
+                    smallImg: "gupiao/龙战于野/logo.png",
+                    desc: "低位涨停（21/07/17 - 3:20）",
+                    conditions: [
+                        "底部的初始阶段",
+                        "如果是回调阶段，则不能高于前高",
+                        "60向上且k线在60上面，且不能离得60太远",
+                        "1-2周",
+                        "买入后上涨远离10，随后回靠10，如果接触到10的是阳线，则大概率上涨，下穿20结果参考强弱突破",
+                    ],
+                    mainImg: "gupiao/龙战于野/lzyy.png",
+                    example: ["gupiao/龙战于野/example1.png", "gupiao/龙战于野/example2.png", "gupiao/龙战于野/example3.png"],
+                    remark: `
                             <div>涨停板可以是一字</div>
                             <div>大阴线也可以是涨停板</div>
                             <div>阴、阳线高开低开平开无所谓</div>
                             <div>低位、中位都可以，也可以横盘中使用，但必须是低位</div>
                             <div>止损： 涨停版的开盘价（适用于所有用到涨停板的模型）</div>
-                        `
-                    },
-                    {
-                        title: 'v型反转(个股， 日线)',
-                        smallImg: 'gupiao/v型反转/logo.png',
-                        desc: '',
-                        mainImg: 'gupiao/v型反转/vxfz.png',
-                        example: ['gupiao/v型反转/example1.png', 'gupiao/v型反转/example2.png', 'gupiao/v型反转/example3.png', 'gupiao/v型反转/example4.png'],
-                        remark: `
-                        `
-                    },
-                    {
-                        title: '双龙取水(个股， 日线)',
-                        smallImg: 'gupiao/双龙取水/logo.png',
-                        desc: '',
-                        mainImg: 'gupiao/双龙取水/slqs.png',
-                        example: ['gupiao/双龙取水/example1.png', 'gupiao/双龙取水/example2.png', 'gupiao/双龙取水/example3.png', 'gupiao/双龙取水/example4.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "v型反转(个股， 日线)",
+                    smallImg: "gupiao/v型反转/logo.png",
+                    desc: "",
+                    mainImg: "gupiao/v型反转/vxfz.png",
+                    example: [
+                        "gupiao/v型反转/example1.png",
+                        "gupiao/v型反转/example2.png",
+                        "gupiao/v型反转/example3.png",
+                        "gupiao/v型反转/example4.png",
+                    ],
+                    remark: `
+                        `,
+                },
+                {
+                    title: "双龙取水(个股， 日线)",
+                    smallImg: "gupiao/双龙取水/logo.png",
+                    desc: "",
+                    mainImg: "gupiao/双龙取水/slqs.png",
+                    example: [
+                        "gupiao/双龙取水/example1.png",
+                        "gupiao/双龙取水/example2.png",
+                        "gupiao/双龙取水/example3.png",
+                        "gupiao/双龙取水/example4.png",
+                    ],
+                    remark: `
                             <div>一字板也算，一字和涨停板的4种排列组合</div>
-                        `
-                    },
-                    {
-                        title: '茶杯底(个股， 日线)',
-                        smallImg: 'gupiao/茶杯底/logo.png',
-                        desc: '',
-                        mainImg: 'gupiao/茶杯底/slqs.png',
-                        example: ['gupiao/茶杯底/example1.png', 'gupiao/茶杯底/example2.png', 'gupiao/茶杯底/example3.png', 'gupiao/茶杯底/example4.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "事不过三(个股， 日线)",
+                    smallImg: "gupiao/事不过三/logo.png",
+                    desc: "",
+                    conditions: [
+                        "模型的阳线不能太大，不能高过前面阴线（除非是在金叉后，死叉后不能做）",
+                        "阳线不能完全站在20均线下，或者不能站在10均线下，后者成功率更高",
+                    ],
+                    mainImg: "gupiao/事不过三/sbgs.png",
+                    example: [
+                        "gupiao/事不过三/example1.png",
+                        "gupiao/事不过三/example2.png",
+                        "gupiao/事不过三/example3.png",
+                        "gupiao/事不过三/example4.png",
+                    ],
+                    remark: `
+                            <div>一字板也算，一字和涨停板的4种排列组合</div>
+                        `,
+                },
+                {
+                    title: "茶杯底(个股， 日线)",
+                    smallImg: "gupiao/茶杯底/logo.png",
+                    desc: "",
+                    mainImg: "gupiao/茶杯底/slqs.png",
+                    example: ["gupiao/茶杯底/example1.png", "gupiao/茶杯底/example2.png", "gupiao/茶杯底/example3.png", "gupiao/茶杯底/example4.png"],
+                    remark: `
                             <div>需要有茶杯把，更加确认</div>
-                        `
-                    },
-                    {
-                        title: '九死一生(个股， 日线)',
-                        smallImg: 'gupiao/九死一生/logo1.png',
-                        desc: '',
-                        mainImg: 'gupiao/九死一生/jsys1.png',
-                        example: ['gupiao/九死一生/example1-1.png', 'gupiao/九死一生/example1-2.png', 'gupiao/九死一生/example1-3.png', 'gupiao/九死一生/example4.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "九死一生1(个股， 日线)",
+                    smallImg: "gupiao/九死一生/logo1.png",
+                    desc: "",
+                    mainImg: "gupiao/九死一生/jsys1.png",
+                    example: [
+                        "gupiao/九死一生/example1-1.png",
+                        "gupiao/九死一生/example1-2.png",
+                        "gupiao/九死一生/example1-3.png",
+                        "gupiao/九死一生/example4.png",
+                    ],
+                    remark: `
                             <div>熊市末期也可以是上涨后的回调，叫阶段性熊市</div>
-                        `
-                    },
-                    {
-                        title: '九死一生(个股， 日线)',
-                        smallImg: 'gupiao/九死一生/logo2.png',
-                        desc: '',
-                        mainImg: 'gupiao/九死一生/jsys2.png',
-                        example: ['gupiao/九死一生/example2-1.png', 'gupiao/九死一生/example2-2.png', 'gupiao/九死一生/example2-3.png', 'gupiao/九死一生/example4.png'],
-                        remark: `
+                        `,
+                },
+                {
+                    title: "九死一生2(个股， 日线)",
+                    smallImg: "gupiao/九死一生/logo2.png",
+                    desc: "",
+                    mainImg: "gupiao/九死一生/jsys2.png",
+                    example: [
+                        "gupiao/九死一生/example2-1.png",
+                        "gupiao/九死一生/example2-2.png",
+                        "gupiao/九死一生/example2-3.png",
+                        "gupiao/九死一生/example4.png",
+                    ],
+                    remark: `
                             <div>第二天可以是阴线、可以是阳线</div>
-                        `
-                    },
-                ]
-            }
+                        `,
+                },
+                {
+                    title: "有惊无险(个股， 日线)",
+                    smallImg: "gupiao/有惊无险/logo.png",
+                    desc: "拉升前的主力洗盘模型",
+                    mainImg: "gupiao/有惊无险/yjwx.png",
+                    example: ["gupiao/有惊无险/example1.png", "gupiao/有惊无险/example2.png", "gupiao/有惊无险/example3.png"],
+                    remark: `
+                            <div>止盈自己把握</div>
+                            <div>一定是筑底后涨起来之后，即在上涨途中，或回调后的地方出现</div>
+                        `,
+                },
+                {
+                    title: "雾里看花(个股， 日线)",
+                    smallImg: "gupiao/雾里看花/logo.png",
+                    desc: "",
+                    mainImg: "gupiao/雾里看花/wlkh.png",
+                    example: ["gupiao/雾里看花/example1.png", "gupiao/雾里看花/example2.png", "gupiao/雾里看花/example3.png"],
+                    remark: `
+                            <div>十字星相比阳线：最高(十字星) > 最高(阳线)；收盘价 > 收盘价；最低价 > 最低价</div>
+                            <div>十字星实体最好小</div>
+                            <div>上涨初期，最好不要涨太高了，而不是在底部找</div>
+                            <div>无所谓影线、无所谓阴阳，下影线不能太长</div>
+                            <div>第二日阳线下影线无所谓，阳线无所谓大小</div>
+                        `,
+                },
+            ],
+        };
+    },
+    computed: {
+        getStyle() {
+            return {
+                width: "80px",
+                "margin-left": "10px !important",
+                "vertical-align": "middle",
+            };
         },
-        computed: {
-            getStyle() {
-                return {
-                    'width': '80px',
-                    'margin-left': '10px !important',
-                    'vertical-align': 'middle'
+        getExampleName() {
+            return (title) => {
+                let name = title;
+                if (title.indexOf("（")) {
+                    name = title.split("（")[0];
                 }
-            },
-            getExampleName() {
-                return (title) => {
-                    let name = title
-                    if (title.indexOf('（')) {
-                        name = title.split('（')[0]
-                    }
-                    return name
-                }
-            }
-        }
-    }
+                return name;
+            };
+        },
+    },
+};
 </script>
 
 <style lang="less" scoped>
@@ -615,7 +715,7 @@
         border-radius: 5px;
         max-height: 300px;
         overflow: auto;
-                
+
         .margin50100 {
             margin: 5px 0 10px 0 !important;
         }
@@ -628,7 +728,7 @@
     flex: 1;
 }
 .red {
-    color: red
+    color: red;
 }
 .size16 {
     font-size: 16px;
