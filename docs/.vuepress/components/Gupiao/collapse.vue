@@ -103,7 +103,7 @@ export default {
                     mainImg: "gupiao/七星2/qx2.png",
                     example: ["gupiao/七星2/example12-1.png", "gupiao/七星2/example2-1.png", "gupiao/七星2/example2-2.png"],
                     conditions: ["阴阳线的真、假都可以", "阴阳线的大、小都行", "阴阳线的高低开都可以", "4. 下跌趋势中，基本都在底部"],
-                    remark: "无论 I型 还是 II型，都是短线抄底模型，见好就收，不要拿着不放",
+                    remark: "无论 I型 还是 II型，都是短线抄底模型，见好就收，不要拿着不放。",
                 },
                 {
                     title: "看跌做涨（个股，周线）",
