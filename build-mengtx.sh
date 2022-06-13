@@ -24,3 +24,5 @@ git push -f git@mengtx:Mengtx-6192/Mengtx-6192.github.io.git master
 
 # 退出命令
 cd -
+
+# npm run build-mengtx 'xxxxx'

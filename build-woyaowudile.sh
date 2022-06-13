@@ -24,3 +24,6 @@ git push -f git@woyaowudile:woyaowudile/woyaowudile.github.io.git master
 
 # 退出命令
 cd -
+
+
+# npm run build-woyaowudile 'xxxxx'
